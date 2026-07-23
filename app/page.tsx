@@ -815,7 +815,7 @@ export default function LandingPage() {
                 <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">Speech Clarity Analytics</Link></li>
                 <li><Link href="/student/ats-analysis" className="hover:text-genz-pink transition-colors">Resume ATS Matcher</Link></li>
                 <li><Link href="/student/certificate" className="hover:text-genz-pink transition-colors">QR Cryptographic Verification</Link></li>
-                <li><Link href="/student/progress" className="hover:text-genz-pink transition-colors">Student Progress Matrix</Link></li>
+                <li><Link href="/student/dashboard" className="hover:text-genz-pink transition-colors">Student Placement Matrix</Link></li>
               </ul>
             </div>
 

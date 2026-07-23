@@ -79,8 +79,8 @@ export default function StudentDashboardPage() {
         </GlassCard>
       </div>
 
-      {/* 4 Metric Summary Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* 3 Metric Summary Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <GlassCard variant="white" className="p-5 space-y-2">
           <div className="flex items-center justify-between text-slate-500">
             <span className="text-xs font-bold">Assessments Completed</span>
@@ -103,14 +103,6 @@ export default function StudentDashboardPage() {
             <FileCheck className="w-4 h-4 text-brand-blue" />
           </div>
           <p className="font-display font-extrabold text-2xl text-brand-dark">74 / 100</p>
-        </GlassCard>
-
-        <GlassCard variant="white" className="p-5 space-y-2">
-          <div className="flex items-center justify-between text-slate-500">
-            <span className="text-xs font-bold">Interview Readiness</span>
-            <Zap className="w-4 h-4 text-brand-lime-dark" />
-          </div>
-          <p className="font-display font-extrabold text-2xl text-amber-600">Intermediate</p>
         </GlassCard>
       </div>
 

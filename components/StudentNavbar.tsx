@@ -14,7 +14,6 @@ export const StudentNavbar: React.FC = () => {
     { name: "Assessments", href: "/student/assessments" },
     { name: "AI Interview", href: "/student/interview" },
     { name: "ATS Analysis", href: "/student/ats-analysis" },
-    { name: "Progress", href: "/student/progress" },
     { name: "Certificates", href: "/student/certificate" },
     { name: "Profile", href: "/student/profile" },
   ];
