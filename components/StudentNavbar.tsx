@@ -19,11 +19,11 @@ export const StudentNavbar: React.FC = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-brand-border/80 px-6 py-3">
+    <header className="sticky top-0 z-40 bg-white/75 backdrop-blur-2xl border-b border-white/80 px-6 py-2.5 shadow-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left Brand */}
         <Link href="/student/dashboard" className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-xl bg-brand-blue text-white flex items-center justify-center font-bold text-lg shadow-glow">
+          <div className="w-9 h-9 rounded-2xl bg-brand-blue/90 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-brand-blue/25 backdrop-blur-md">
             P
           </div>
           <span className="font-display font-bold text-lg text-brand-dark tracking-tight">
@@ -32,7 +32,7 @@ export const StudentNavbar: React.FC = () => {
         </Link>
 
         {/* Center Nav Links */}
-        <nav className="hidden lg:flex items-center gap-1 bg-slate-100/70 p-1 rounded-2xl border border-slate-200/60">
+        <nav className="hidden lg:flex items-center gap-1 bg-white/50 backdrop-blur-xl p-1.5 rounded-full border border-white/60 shadow-sm">
           {navItems.map((item) => {
             const isActive = pathname === item.href || pathname?.startsWith(item.href + "/");
             return (
@@ -40,10 +40,10 @@ export const StudentNavbar: React.FC = () => {
                 key={item.href}
                 href={item.href}
                 className={clsx(
-                  "px-4 py-2 text-xs font-semibold rounded-xl transition-all duration-200",
+                  "px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200",
                   isActive
                     ? "bg-white text-brand-blue shadow-sm"
-                    : "text-slate-600 hover:text-brand-dark hover:bg-white/50"
+                    : "text-slate-600 hover:text-brand-dark hover:bg-white/60"
                 )}
               >
                 {item.name}
@@ -57,14 +57,14 @@ export const StudentNavbar: React.FC = () => {
           {/* Quick Switch to Admin demo link */}
           <Link
             href="/admin/dashboard"
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium bg-brand-soft text-brand-dark rounded-full hover:bg-brand-soft/80 transition-colors"
+            className="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold bg-brand-soft/30 text-brand-dark rounded-full border border-brand-soft/50 hover:bg-brand-soft/50 backdrop-blur-md transition-colors"
           >
             <Shield className="w-3.5 h-3.5 text-brand-blue" />
             <span>Admin Portal</span>
           </Link>
 
           {/* Bell Notifications */}
-          <button className="relative w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-700 transition-colors">
+          <button className="relative w-9 h-9 rounded-full bg-white/60 hover:bg-white/80 border border-white/60 backdrop-blur-md flex items-center justify-center text-slate-700 transition-colors shadow-sm">
             <Bell className="w-4 h-4" />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-brand-lime rounded-full border-2 border-white animate-pulse" />
           </button>
@@ -74,7 +74,7 @@ export const StudentNavbar: React.FC = () => {
             href="/student/profile"
             className="flex items-center gap-2.5 pl-2 hover:opacity-90 transition-opacity"
           >
-            <div className="w-9 h-9 rounded-full bg-slate-300 ring-2 ring-brand-blue/20 overflow-hidden relative">
+            <div className="w-9 h-9 rounded-full bg-slate-300 ring-2 ring-brand-blue/30 overflow-hidden relative shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80"
                 alt="Aaditya"

@@ -20,15 +20,15 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   className,
   ...props
 }) => {
-  const baseStyles = "rounded-card overflow-hidden transition-all duration-300 relative border-2 border-genz-dark";
+  const baseStyles = "rounded-3xl overflow-hidden transition-all duration-300 relative";
 
   const variants = {
     glass: "glass-card",
-    white: "bg-white border-2 border-genz-dark shadow-retro-hard",
-    soft: "bg-genz-cream border-2 border-genz-dark shadow-retro-hard-yellow",
-    dark: "bg-genz-dark text-white border-2 border-genz-dark shadow-retro-hard-orange",
-    gradient: "bg-gradient-to-br from-white via-genz-cream to-genz-pink/20 border-2 border-genz-dark shadow-retro-hard-blue",
-    retro: "bg-white border-2 border-genz-dark shadow-retro-hard-pink",
+    white: "bg-white/75 backdrop-blur-xl border border-white/80 shadow-xl shadow-slate-900/5 hover:bg-white/90 hover:shadow-2xl hover:shadow-slate-900/10",
+    soft: "bg-genz-cream/80 backdrop-blur-xl border border-genz-yellow/30 shadow-xl shadow-genz-yellow/10 hover:bg-genz-cream/95 hover:shadow-2xl hover:shadow-genz-yellow/20",
+    dark: "bg-genz-dark/85 backdrop-blur-2xl text-white border border-white/12 shadow-2xl shadow-black/30 hover:bg-genz-dark/95",
+    gradient: "bg-gradient-to-br from-white/90 via-white/70 to-genz-pink/20 backdrop-blur-2xl border border-white/80 shadow-xl shadow-genz-pink/15 hover:shadow-2xl hover:shadow-genz-pink/25",
+    retro: "bg-white/80 backdrop-blur-xl border border-genz-pink/30 shadow-xl shadow-genz-pink/15 hover:bg-white/95 hover:shadow-2xl hover:shadow-genz-pink/25",
   };
 
   const paddings = {
@@ -40,8 +40,8 @@ export const GlassCard: React.FC<GlassCardProps> = ({
 
   return (
     <motion.div
-      whileHover={hoverEffect ? { y: -5 } : undefined}
-      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={hoverEffect ? { y: -4, scale: 1.015 } : undefined}
+      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
       className={clsx(
         baseStyles,
         variants[variant],

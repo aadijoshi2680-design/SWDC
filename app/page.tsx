@@ -130,23 +130,23 @@ export default function LandingPage() {
             className="lg:col-span-6 space-y-6"
           >
             {/* Top Sticker Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-genz-yellow border-2 border-genz-dark text-genz-dark text-xs font-black shadow-retro-hard">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-genz-yellow/85 border border-white/60 text-genz-dark text-xs font-black shadow-lg shadow-genz-yellow/20 backdrop-blur-md">
               <Sparkles className="w-4 h-4 text-genz-dark animate-spin" />
               <span>THE COOL WAY TO CRACK PLACEMENTS</span>
-              <span className="bg-genz-orange text-white text-[10px] px-2 py-0.5 rounded-md font-bold uppercase">
+              <span className="bg-genz-orange/90 text-white text-[10px] px-2 py-0.5 rounded-md font-bold uppercase backdrop-blur-sm">
                 VINTAGE v2.0
               </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-genz-dark leading-[1.08]">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-genz-dark leading-[1.12]">
               Level Up Your Skills. <br />
-              <span className="bg-genz-yellow text-genz-dark px-2 rounded-lg border-2 border-genz-dark inline-block shadow-retro-hard my-1">
+              <span className="bg-genz-yellow/90 text-genz-dark px-3 py-0.5 rounded-xl border border-white/50 inline-block shadow-lg shadow-genz-yellow/25 backdrop-blur-md my-1">
                 Crack Placements.
               </span> <br />
               <span className="text-genz-blue">Ace Every AI Interview.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-700 max-w-xl font-semibold leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-700 max-w-lg font-semibold leading-relaxed">
               PrepWise AI combines retro arcade learning energy with cutting-edge AI evaluations: aptitude drills, English communication scoring, live mock interviews, and ATS resume verification.
             </p>
 
@@ -166,11 +166,11 @@ export default function LandingPage() {
 
             {/* Quick stats pills */}
             <div className="pt-4 flex flex-wrap items-center gap-3 text-xs font-bold">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border-2 border-genz-dark shadow-[2px_2px_0px_#121318]">
+              <div className="flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-md shadow-slate-900/5">
                 <Flame className="w-4 h-4 text-genz-orange" />
                 <span>15,000+ Active Learners</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-genz-pink/40 border-2 border-genz-dark shadow-[2px_2px_0px_#121318]">
+              <div className="flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-genz-pink/35 backdrop-blur-md border border-white/80 shadow-md shadow-genz-pink/15">
                 <Trophy className="w-4 h-4 text-genz-dark" />
                 <span>94.8% Placement Pass Rate</span>
               </div>
@@ -198,8 +198,44 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Feature Cards Section */}
-      <section id="features" className="py-24 px-6 bg-white border-y-2 border-genz-dark">
+      {/* Premium Trust & Social Proof Statistics Section */}
+      <section className="py-12 px-6 bg-white/30 border-y border-white/60 backdrop-blur-md relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 lg:gap-6">
+            {[
+              { label: "Active Students Enrolled", val: "15,000+", icon: Users, color: "text-genz-yellow", bg: "bg-genz-yellow/15", border: "border-genz-yellow/30" },
+              { label: "AI Mock Interviews", val: "50,000+", icon: Bot, color: "text-genz-blue", bg: "bg-genz-blue/15", border: "border-genz-blue/30" },
+              { label: "ATS Resume Analyses", val: "85,000+", icon: FileCheck, color: "text-genz-green", bg: "bg-genz-green/15", border: "border-genz-green/30" },
+              { label: "Placement Pass Rate", val: "94.8%", icon: Trophy, color: "text-genz-pink", bg: "bg-genz-pink/15", border: "border-genz-pink/30" },
+              { label: "Partner Colleges", val: "120+", icon: GraduationCap, color: "text-genz-orange", bg: "bg-genz-orange/15", border: "border-genz-orange/30" },
+            ].map((stat, idx) => {
+              const StatIcon = stat.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="bg-white/70 backdrop-blur-xl p-5 rounded-3xl border border-white/80 shadow-lg shadow-slate-900/5 flex flex-col justify-between space-y-3 transition-all"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="text-2xl sm:text-3xl font-black text-genz-dark tracking-tight">{stat.val}</span>
+                    <div className={`w-9 h-9 rounded-full ${stat.bg} ${stat.color} ${stat.border} border flex items-center justify-center backdrop-blur-sm shadow-sm`}>
+                      <StatIcon className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <span className="text-xs font-extrabold text-slate-600 leading-snug">{stat.label}</span>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Cards Section with Interactive Product Previews */}
+      <section id="features" className="py-24 px-6 bg-white/40 border-b border-white/60 relative backdrop-blur-md">
         <div className="max-w-7xl mx-auto space-y-14">
           <div className="text-center space-y-4 max-w-2xl mx-auto">
             <Badge variant="pink" size="md">
@@ -215,42 +251,212 @@ export default function LandingPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
-            {features.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <GlassCard
-                  key={i}
-                  variant="white"
-                  className={`p-7 space-y-5 border-2 ${f.accent} group hover:-translate-y-2 transition-all`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-genz-dark text-genz-yellow border-2 border-genz-dark flex items-center justify-center shadow-retro-hard group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <Badge variant={f.badgeColor} size="sm">
-                      {f.badge}
-                    </Badge>
+            {/* Module 1: Aptitude & Reasoning with Interactive Mini Quiz */}
+            <GlassCard
+              variant="white"
+              className="p-6 space-y-5 border border-white/80 group hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-full bg-genz-dark/90 text-genz-yellow border border-white/20 flex items-center justify-center shadow-lg shadow-black/15 backdrop-blur-md group-hover:scale-110 transition-transform">
+                    <BookOpen className="w-6 h-6" />
                   </div>
+                  <Badge variant="yellow" size="sm">
+                    POPULAR
+                  </Badge>
+                </div>
 
-                  <h3 className="font-display font-extrabold text-xl text-genz-dark">{f.title}</h3>
-                  <p className="text-xs font-medium text-slate-600 leading-relaxed">{f.desc}</p>
-                  
-                  <div className="pt-2">
-                    <Link href={f.link}>
-                      <PrimaryButton variant={f.badgeColor} size="sm" fullWidth icon={<ArrowRight className="w-4 h-4" />}>
-                        Explore Module
-                      </PrimaryButton>
-                    </Link>
+                <h3 className="font-display font-extrabold text-xl text-genz-dark">Aptitude & Reasoning</h3>
+                <p className="text-xs font-medium text-slate-600 leading-relaxed">
+                  Master quantitative logic, spatial reasoning & data interpretation with video solutions.
+                </p>
+
+                {/* Interactive Mini Quiz Preview */}
+                <div className="bg-genz-cream/80 backdrop-blur-md p-3.5 rounded-2xl border border-white/80 space-y-2.5 text-xs">
+                  <div className="flex items-center justify-between text-[11px] font-bold text-genz-dark">
+                    <span>Quick Drill</span>
+                    <span className="text-genz-orange font-mono">Q. 6 Coders / 18 Services</span>
                   </div>
-                </GlassCard>
-              );
-            })}
+                  <div className="grid grid-cols-2 gap-1.5 pt-1">
+                    {[
+                      { text: "30 Serv", isCorrect: false },
+                      { text: "50 Serv", isCorrect: true },
+                      { text: "45 Serv", isCorrect: false },
+                      { text: "60 Serv", isCorrect: false },
+                    ].map((opt, oIdx) => (
+                      <button
+                        key={oIdx}
+                        onClick={() => {
+                          setActiveQuizOption(oIdx);
+                          setQuizSubmitted(true);
+                        }}
+                        className={`px-2.5 py-1.5 rounded-xl text-[11px] font-bold border transition-all text-center ${
+                          activeQuizOption === oIdx
+                            ? opt.isCorrect
+                              ? "bg-genz-green text-white border-genz-green shadow-sm"
+                              : "bg-rose-500 text-white border-rose-500 shadow-sm"
+                            : "bg-white/80 text-genz-dark border-slate-200/80 hover:bg-genz-yellow/20"
+                        }`}
+                      >
+                        {opt.text}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Link href="/student/assessments">
+                  <PrimaryButton variant="yellow" size="sm" fullWidth icon={<ArrowRight className="w-4 h-4" />}>
+                    Explore Module
+                  </PrimaryButton>
+                </Link>
+              </div>
+            </GlassCard>
+
+            {/* Module 2: English & Fluency AI with Speech Score Meter */}
+            <GlassCard
+              variant="white"
+              className="p-6 space-y-5 border border-white/80 group hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-full bg-genz-dark/90 text-genz-pink border border-white/20 flex items-center justify-center shadow-lg shadow-black/15 backdrop-blur-md group-hover:scale-110 transition-transform">
+                    <MessageSquare className="w-6 h-6" />
+                  </div>
+                  <Badge variant="pink" size="sm">
+                    HOT
+                  </Badge>
+                </div>
+
+                <h3 className="font-display font-extrabold text-xl text-genz-dark">English & Fluency AI</h3>
+                <p className="text-xs font-medium text-slate-600 leading-relaxed">
+                  Instant feedback on grammar, corporate vocab, speaking pace, and confidence score.
+                </p>
+
+                {/* Speech Score Mini Meter */}
+                <div className="bg-genz-pink/15 backdrop-blur-md p-3.5 rounded-2xl border border-genz-pink/30 space-y-2 text-xs">
+                  <div className="flex items-center justify-between font-bold text-genz-dark text-[11px]">
+                    <span>Fluency Score</span>
+                    <span className="text-genz-pink font-extrabold">94 / 100</span>
+                  </div>
+                  <div className="w-full h-2 bg-white/80 rounded-full overflow-hidden">
+                    <div className="h-full bg-genz-pink rounded-full" style={{ width: "94%" }} />
+                  </div>
+                  <div className="flex justify-between text-[10px] text-slate-600 font-semibold pt-0.5">
+                    <span>Pace: 145 wpm</span>
+                    <span>Fillers: &lt;1%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Link href="/student/assessments">
+                  <PrimaryButton variant="pink" size="sm" fullWidth icon={<ArrowRight className="w-4 h-4" />}>
+                    Explore Module
+                  </PrimaryButton>
+                </Link>
+              </div>
+            </GlassCard>
+
+            {/* Module 3: AI Mock Interviews with Waveform Simulator */}
+            <GlassCard
+              variant="white"
+              className="p-6 space-y-5 border border-white/80 group hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-full bg-genz-dark/90 text-genz-blue border border-white/20 flex items-center justify-center shadow-lg shadow-black/15 backdrop-blur-md group-hover:scale-110 transition-transform">
+                    <Bot className="w-6 h-6" />
+                  </div>
+                  <Badge variant="blue" size="sm">
+                    AI-POWERED
+                  </Badge>
+                </div>
+
+                <h3 className="font-display font-extrabold text-xl text-genz-dark">AI Mock Interviews</h3>
+                <p className="text-xs font-medium text-slate-600 leading-relaxed">
+                  Interactive live technical & HR mock interviews with real-time feedback report card.
+                </p>
+
+                {/* Live Waveform Indicator */}
+                <div className="bg-genz-blue/15 backdrop-blur-md p-3.5 rounded-2xl border border-genz-blue/30 space-y-2 text-xs">
+                  <div className="flex items-center justify-between font-bold text-genz-dark text-[11px]">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-genz-blue animate-ping" /> Live Audio
+                    </span>
+                    <span className="text-genz-blue font-extrabold">Active</span>
+                  </div>
+                  <div className="flex items-center justify-center gap-1 h-6 bg-white/70 rounded-xl px-2">
+                    <div className="w-1 bg-genz-blue rounded-full animate-audio-bar-1" />
+                    <div className="w-1 bg-genz-blue rounded-full animate-audio-bar-2" />
+                    <div className="w-1 bg-genz-blue rounded-full animate-audio-bar-3" />
+                    <div className="w-1 bg-genz-blue rounded-full animate-audio-bar-4" />
+                    <div className="w-1 bg-genz-blue rounded-full animate-audio-bar-5" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Link href="/student/interview">
+                  <PrimaryButton variant="blue" size="sm" fullWidth icon={<ArrowRight className="w-4 h-4" />}>
+                    Explore Module
+                  </PrimaryButton>
+                </Link>
+              </div>
+            </GlassCard>
+
+            {/* Module 4: Resume ATS Matcher with Keyword Scanner */}
+            <GlassCard
+              variant="white"
+              className="p-6 space-y-5 border border-white/80 group hover:-translate-y-2 hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-12 h-12 rounded-full bg-genz-dark/90 text-genz-green border border-white/20 flex items-center justify-center shadow-lg shadow-black/15 backdrop-blur-md group-hover:scale-110 transition-transform">
+                    <FileCheck className="w-6 h-6" />
+                  </div>
+                  <Badge variant="green" size="sm">
+                    VERIFIED
+                  </Badge>
+                </div>
+
+                <h3 className="font-display font-extrabold text-xl text-genz-dark">Resume ATS Matcher</h3>
+                <p className="text-xs font-medium text-slate-600 leading-relaxed">
+                  Scan your resume against top tech company job descriptions and boost keyword density.
+                </p>
+
+                {/* ATS Matcher Mini Preview */}
+                <div className="bg-genz-green/15 backdrop-blur-md p-3.5 rounded-2xl border border-genz-green/30 space-y-2 text-xs">
+                  <div className="flex items-center justify-between font-bold text-genz-dark text-[11px]">
+                    <span>ATS Match Score</span>
+                    <span className="text-genz-green font-extrabold">98.4% Match</span>
+                  </div>
+                  <div className="w-full h-2 bg-white/80 rounded-full overflow-hidden">
+                    <div className="h-full bg-genz-green rounded-full" style={{ width: "98%" }} />
+                  </div>
+                  <div className="flex items-center gap-1 pt-0.5 text-[10px] text-slate-600 font-semibold">
+                    <span className="bg-white/80 px-1.5 py-0.5 rounded text-genz-dark font-bold">React</span>
+                    <span className="bg-white/80 px-1.5 py-0.5 rounded text-genz-dark font-bold">Node</span>
+                    <span className="bg-white/80 px-1.5 py-0.5 rounded text-genz-dark font-bold">AWS</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-2">
+                <Link href="/student/ats-analysis">
+                  <PrimaryButton variant="green" size="sm" fullWidth icon={<ArrowRight className="w-4 h-4" />}>
+                    Explore Module
+                  </PrimaryButton>
+                </Link>
+              </div>
+            </GlassCard>
           </div>
         </div>
       </section>
 
       {/* Horizontal Connected Animated Roadmap Section */}
-      <section id="how-it-works" className="py-24 px-6 bg-genz-yellow/20 border-b-2 border-genz-dark relative overflow-hidden">
+      <section id="how-it-works" className="py-24 px-6 bg-genz-yellow/10 border-b border-white/50 relative overflow-hidden backdrop-blur-sm">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <Badge variant="yellow" size="md">
@@ -286,7 +492,7 @@ export default function LandingPage() {
               {/* Background Guide Line */}
               <path
                 d="M 50 50 C 150 10, 230 90, 350 50 C 470 10, 550 90, 670 50 C 790 10, 870 90, 990 50 C 1090 10, 1140 90, 1180 50"
-                stroke="rgba(18, 19, 24, 0.15)"
+                stroke="rgba(18, 19, 24, 0.12)"
                 strokeWidth="6"
                 strokeDasharray="6 6"
                 strokeLinecap="round"
@@ -316,17 +522,17 @@ export default function LandingPage() {
                   whileHover={{ y: -8, scale: 1.05 }}
                   className="flex flex-col items-center text-center space-y-3.5 group cursor-pointer"
                 >
-                  {/* Non-Circular Squarcle Node Shape */}
+                  {/* Circular Frosted Glass Node Shape */}
                   <div
-                    className={`w-15 h-15 rounded-2xl ${step.bg} border-2 border-genz-dark text-genz-dark font-black text-lg flex items-center justify-center shadow-retro-hard group-hover:rotate-6 transition-all duration-300 relative`}
+                    className={`w-15 h-15 rounded-full ${step.bg}/90 backdrop-blur-md border border-white/60 text-genz-dark font-black text-lg flex items-center justify-center shadow-lg shadow-black/10 group-hover:scale-110 transition-all duration-300 relative`}
                   >
                     <span>0{idx + 1}</span>
-                    {/* Non-circular Diamond Pin */}
-                    <div className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-sm bg-white border-2 border-genz-dark rotate-45" />
+                    {/* Glass Pin */}
+                    <div className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-full bg-white/90 border border-white/60 shadow-sm" />
                   </div>
 
                   {/* Step Label Card */}
-                  <div className="w-full p-3.5 rounded-2xl bg-white border-2 border-genz-dark shadow-[3.5px_3.5px_0px_#121318] group-hover:shadow-[5.5px_5.5px_0px_#FE6622] group-hover:bg-genz-cream transition-all duration-300">
+                  <div className="w-full p-3.5 rounded-2xl bg-white/70 backdrop-blur-xl border border-white/80 shadow-md shadow-black/5 group-hover:shadow-xl group-hover:bg-white/90 transition-all duration-300">
                     <span className="text-xs font-black text-genz-dark leading-snug block">
                       {step.label}
                     </span>
@@ -339,7 +545,7 @@ export default function LandingPage() {
       </section>
 
       {/* AI Mock Interview Showcase Section */}
-      <section className="py-24 px-6 bg-genz-cream border-b-2 border-genz-dark relative overflow-hidden">
+      <section className="py-24 px-6 bg-genz-cream/60 border-b border-white/50 relative overflow-hidden backdrop-blur-sm">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column Text */}
           <div className="lg:col-span-6 space-y-6">
@@ -354,13 +560,13 @@ export default function LandingPage() {
               Practice mock interviews powered by advanced speech AI. Get instant scoring on speaking pace, confidence, keyword usage, and technical depth directly on your laptop.
             </p>
 
-            {/* Spacious Uncluttered Square Cards */}
+            {/* Spacious Glass Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
               <motion.div
-                whileHover={{ y: -4 }}
-                className="bg-white p-6 rounded-3xl border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex flex-col justify-between space-y-4 hover:shadow-[6px_6px_0px_#FE6622] transition-all"
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="bg-white/70 backdrop-blur-xl p-6 rounded-3xl border border-white/80 shadow-xl shadow-slate-900/5 flex flex-col justify-between space-y-4 hover:shadow-2xl hover:bg-white/85 transition-all"
               >
-                <div className="w-12 h-12 rounded-2xl bg-genz-yellow border-2 border-genz-dark flex items-center justify-center shadow-retro-hard">
+                <div className="w-12 h-12 rounded-full bg-genz-yellow/90 backdrop-blur-md border border-white/60 flex items-center justify-center shadow-md shadow-genz-yellow/20">
                   <Bot className="w-6 h-6 text-genz-dark" />
                 </div>
                 <div className="space-y-2">
@@ -372,10 +578,10 @@ export default function LandingPage() {
               </motion.div>
 
               <motion.div
-                whileHover={{ y: -4 }}
-                className="bg-white p-6 rounded-3xl border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex flex-col justify-between space-y-4 hover:shadow-[6px_6px_0px_#FFA4BF] transition-all"
+                whileHover={{ y: -4, scale: 1.02 }}
+                className="bg-white/70 backdrop-blur-xl p-6 rounded-3xl border border-white/80 shadow-xl shadow-slate-900/5 flex flex-col justify-between space-y-4 hover:shadow-2xl hover:bg-white/85 transition-all"
               >
-                <div className="w-12 h-12 rounded-2xl bg-genz-pink border-2 border-genz-dark flex items-center justify-center shadow-retro-hard">
+                <div className="w-12 h-12 rounded-full bg-genz-pink/90 backdrop-blur-md border border-white/60 flex items-center justify-center shadow-md shadow-genz-pink/20">
                   <Zap className="w-6 h-6 text-genz-dark" />
                 </div>
                 <div className="space-y-2">
@@ -400,34 +606,41 @@ export default function LandingPage() {
           <div className="lg:col-span-6">
             <div className="relative mx-auto w-full max-w-lg">
               {/* Silver Laptop Display Top Frame */}
-              <div className="bg-slate-200 rounded-t-3xl p-3 sm:p-4 border-4 border-genz-dark shadow-2xl relative">
+              <div className="bg-slate-200/80 backdrop-blur-xl rounded-t-3xl p-3 sm:p-4 border border-white/80 shadow-2xl relative">
                 {/* Laptop Web Camera Dot */}
-                <div className="w-3 h-3 rounded-full bg-slate-300 border-2 border-genz-dark mx-auto mb-2 flex items-center justify-center">
+                <div className="w-3 h-3 rounded-full bg-slate-300 border border-slate-400 mx-auto mb-2 flex items-center justify-center">
                   <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
 
-                {/* Display Screen (Crisp White / Warm Cream Interior) */}
-                <div className="bg-white text-genz-dark rounded-2xl p-5 border-2 border-genz-dark space-y-4 shadow-sm">
+                {/* Display Screen */}
+                <div className="bg-white/80 backdrop-blur-xl text-genz-dark rounded-2xl p-5 border border-white/80 space-y-4 shadow-sm">
                   {/* Interview Session Header */}
-                  <div className="flex items-center justify-between border-b-2 border-slate-100 pb-3">
+                  <div className="flex items-center justify-between border-b border-slate-100/80 pb-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-genz-blue text-white font-black flex items-center justify-center text-xs border border-genz-dark shadow-[2px_2px_0px_#121318]">
+                      <div className="w-9 h-9 rounded-full bg-genz-blue/90 text-white font-black flex items-center justify-center text-xs border border-white/40 shadow-md shadow-genz-blue/20">
                         AI
                       </div>
                       <div>
                         <h4 className="font-extrabold text-xs sm:text-sm text-genz-dark">Senior Tech Interviewer Bot</h4>
-                        <p className="text-[11px] text-emerald-600 font-bold flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" /> Active Session • 03:42
+                        <p className="text-[11px] text-emerald-600 font-bold flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                          <span>Active Session • 03:42</span>
                         </p>
                       </div>
                     </div>
-                    <Badge variant="orange" size="sm">
-                      AUDIO RECORDING
-                    </Badge>
+                    
+                    {/* Real-time Audio Waveform in Header */}
+                    <div className="flex items-center gap-1 bg-genz-orange/10 px-3 py-1.5 rounded-full border border-genz-orange/30">
+                      <span className="text-[10px] font-extrabold text-genz-orange pr-1">REC</span>
+                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-1" />
+                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-2" />
+                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-3" />
+                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-4" />
+                    </div>
                   </div>
 
-                  {/* AI Prompt Screen Box (Cream Accent) */}
-                  <div className="bg-genz-cream p-4 rounded-xl border-2 border-genz-dark space-y-2 text-xs">
+                  {/* AI Prompt Screen Box */}
+                  <div className="bg-genz-cream/80 backdrop-blur-md p-4 rounded-2xl border border-white/60 space-y-2 text-xs">
                     <div className="flex items-center gap-2 text-genz-orange font-black">
                       <MessageSquare className="w-3.5 h-3.5" />
                       <span>AI Question Prompt:</span>
@@ -438,21 +651,21 @@ export default function LandingPage() {
                   </div>
 
                   {/* Speech Clarity Meter */}
-                  <div className="bg-genz-yellow/15 p-3.5 rounded-xl border-2 border-genz-dark space-y-2">
+                  <div className="bg-genz-yellow/15 backdrop-blur-md p-3.5 rounded-2xl border border-genz-yellow/30 space-y-2">
                     <div className="flex justify-between text-xs font-black text-genz-dark">
                       <span>Live Speech Clarity</span>
                       <span className="text-genz-green">89% - Excellent</span>
                     </div>
-                    <div className="w-full h-2.5 bg-white border border-genz-dark rounded-full overflow-hidden">
-                      <div className="h-full bg-genz-green rounded-full" style={{ width: "89%" }} />
+                    <div className="w-full h-2.5 bg-white/80 border border-white/60 rounded-full overflow-hidden">
+                      <div className="h-full bg-genz-green rounded-full shadow-sm" style={{ width: "89%" }} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Silver Laptop Keyboard Base & Trackpad Notch */}
-              <div className="w-[108%] -ml-[4%] h-5 bg-slate-300 rounded-b-2xl border-x-4 border-b-4 border-genz-dark shadow-[6px_6px_0px_#FE6622] relative flex justify-center items-top">
-                <div className="w-16 sm:w-20 h-1.5 bg-slate-400 border border-slate-500 rounded-b-md" />
+              {/* Silver Laptop Keyboard Base */}
+              <div className="w-[108%] -ml-[4%] h-5 bg-slate-300/80 backdrop-blur-md rounded-b-2xl border border-white/60 shadow-lg shadow-genz-orange/20 relative flex justify-center items-top">
+                <div className="w-16 sm:w-20 h-1.5 bg-slate-400 border border-slate-500/50 rounded-b-md" />
               </div>
             </div>
           </div>
@@ -460,7 +673,7 @@ export default function LandingPage() {
       </section>
 
       {/* Certification Section */}
-      <section id="certification" className="py-24 px-6 bg-genz-cream border-b-2 border-genz-dark">
+      <section id="certification" className="py-24 px-6 bg-genz-cream/80 border-b border-white/50 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
             <Badge variant="green" size="md">
@@ -475,14 +688,14 @@ export default function LandingPage() {
             </p>
 
             <div className="space-y-3">
-              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border-2 border-genz-dark shadow-[3px_3px_0px_#121318]">
+              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-xl p-4 rounded-2xl border border-white/80 shadow-lg shadow-slate-900/5 hover:scale-[1.01] transition-transform">
                 <ShieldCheck className="w-5 h-5 text-genz-green shrink-0 mt-0.5" />
                 <div>
                   <h5 className="text-xs font-black text-genz-dark">Cryptographic Verification</h5>
                   <p className="text-xs text-slate-600 font-medium">Unique hash key stored securely for instant employer authentication.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border-2 border-genz-dark shadow-[3px_3px_0px_#121318]">
+              <div className="flex items-start gap-3 bg-white/70 backdrop-blur-xl p-4 rounded-2xl border border-white/80 shadow-lg shadow-slate-900/5 hover:scale-[1.01] transition-transform">
                 <Award className="w-5 h-5 text-genz-orange shrink-0 mt-0.5" />
                 <div>
                   <h5 className="text-xs font-black text-genz-dark">QR Code Badge</h5>
@@ -493,8 +706,8 @@ export default function LandingPage() {
           </div>
 
           <div className="lg:col-span-6">
-            <GlassCard variant="white" className="p-8 border-4 border-genz-dark text-center space-y-5 shadow-[10px_10px_0px_#00A56B]">
-              <div className="inline-block bg-genz-yellow text-genz-dark font-black text-[11px] px-3 py-1 rounded-full border border-genz-dark">
+            <GlassCard variant="white" className="p-8 border border-white/80 text-center space-y-5 shadow-2xl shadow-genz-green/15 glass-shimmer">
+              <div className="inline-block bg-genz-yellow/85 backdrop-blur-md text-genz-dark font-black text-[11px] px-3.5 py-1 rounded-full border border-white/60 shadow-sm">
                 OFFICIAL CERTIFICATE OF MASTERY
               </div>
               <h3 className="font-display font-black text-2xl text-genz-dark">Aaditya Johnson</h3>
@@ -503,12 +716,12 @@ export default function LandingPage() {
                 <span className="font-bold text-genz-dark">Full-Stack Technical Aptitude & English Fluency</span>
               </p>
 
-              <div className="p-4 bg-genz-cream rounded-2xl border-2 border-genz-dark flex items-center justify-between text-left">
+              <div className="p-4 bg-genz-cream/80 backdrop-blur-md rounded-2xl border border-white/60 flex items-center justify-between text-left shadow-sm group hover:shadow-md transition-all">
                 <div>
                   <span className="text-[10px] font-bold text-slate-500 uppercase">Verification Code</span>
                   <p className="font-mono font-bold text-xs text-genz-blue">PW-2026-VINTAGE-9981</p>
                 </div>
-                <div className="w-10 h-10 bg-genz-dark rounded-lg text-white font-mono text-[10px] font-bold flex items-center justify-center">
+                <div className="w-10 h-10 bg-genz-dark/90 rounded-xl text-white font-mono text-[10px] font-bold flex items-center justify-center shadow-md group-hover:scale-110 group-hover:bg-genz-orange transition-all">
                   QR
                 </div>
               </div>
@@ -518,7 +731,7 @@ export default function LandingPage() {
       </section>
 
       {/* Delivering Job Ready Developers - Infinite Company Logos Marquee Slider */}
-      <section id="colleges" className="py-24 px-6 bg-white border-b-2 border-genz-dark overflow-hidden relative">
+      <section id="colleges" className="py-24 px-6 bg-white/50 border-b border-white/50 overflow-hidden relative backdrop-blur-sm">
         <div className="max-w-7xl mx-auto space-y-10">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
             <Badge variant="orange" size="md">
@@ -534,8 +747,8 @@ export default function LandingPage() {
 
           {/* Marquee Row 1 (Moving Left) */}
           <div className="relative w-full overflow-hidden py-3">
-            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white/90 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white/90 to-transparent z-10 pointer-events-none" />
 
             <motion.div
               className="flex items-center gap-6 whitespace-nowrap w-max"
@@ -571,7 +784,7 @@ export default function LandingPage() {
               ]).map((c, i) => (
                 <div
                   key={i}
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-white border-2 border-genz-dark shadow-[3.5px_3.5px_0px_#121318] hover:bg-genz-yellow hover:scale-105 transition-all duration-200 cursor-pointer shrink-0"
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white/70 backdrop-blur-md border border-white/80 shadow-md shadow-slate-900/5 hover:bg-white hover:scale-105 hover:shadow-lg transition-all duration-200 cursor-pointer shrink-0"
                 >
                   {c.render()}
                 </div>
@@ -581,8 +794,8 @@ export default function LandingPage() {
 
           {/* Marquee Row 2 (Moving Right) */}
           <div className="relative w-full overflow-hidden py-2">
-            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white/90 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white/90 to-transparent z-10 pointer-events-none" />
 
             <motion.div
               className="flex items-center gap-6 whitespace-nowrap w-max"
@@ -618,7 +831,7 @@ export default function LandingPage() {
               ]).map((c, i) => (
                 <div
                   key={i}
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-white border-2 border-genz-dark shadow-[3.5px_3.5px_0px_#121318] hover:bg-genz-pink hover:scale-105 transition-all duration-200 cursor-pointer shrink-0"
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-white/70 backdrop-blur-md border border-white/80 shadow-md shadow-slate-900/5 hover:bg-white hover:scale-105 hover:shadow-lg transition-all duration-200 cursor-pointer shrink-0"
                 >
                   {c.render()}
                 </div>
@@ -629,7 +842,7 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-24 px-6 bg-genz-cream">
+      <section className="py-24 px-6 bg-genz-cream/80 backdrop-blur-sm">
         <div className="max-w-3xl mx-auto space-y-8">
           <h2 className="font-display text-3xl font-black text-center text-genz-dark">
             Got Questions? We Got Answers.
@@ -639,7 +852,7 @@ export default function LandingPage() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border-2 border-genz-dark shadow-retro-hard overflow-hidden cursor-pointer transition-transform hover:-translate-y-0.5"
+                className="bg-white/70 backdrop-blur-xl rounded-2xl border border-white/80 shadow-md shadow-slate-900/5 overflow-hidden cursor-pointer transition-all hover:bg-white/90 hover:shadow-lg hover:-translate-y-0.5"
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
               >
                 <div className="p-5 flex items-center justify-between font-extrabold text-sm text-genz-dark">
@@ -651,7 +864,7 @@ export default function LandingPage() {
                   />
                 </div>
                 {openFaq === idx && (
-                  <div className="px-5 pb-5 text-xs text-slate-700 font-semibold leading-relaxed border-t-2 border-slate-100 pt-3">
+                  <div className="px-5 pb-5 text-xs text-slate-700 font-semibold leading-relaxed border-t border-slate-100/80 pt-3">
                     {faq.a}
                   </div>
                 )}
@@ -662,7 +875,7 @@ export default function LandingPage() {
       </section>
 
       {/* Start Your Placement Journey - Pre-Footer Banner with Student Character */}
-      <section className="pt-20 pb-0 px-6 bg-gradient-to-r from-genz-yellow/30 via-genz-pink/20 to-genz-blue/20 border-t-4 border-genz-dark relative overflow-hidden">
+      <section className="pt-20 pb-0 px-6 bg-gradient-to-r from-genz-yellow/20 via-genz-pink/15 to-genz-blue/15 border-t border-white/50 relative overflow-hidden backdrop-blur-md">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-6 space-y-6 pb-16">
             <Badge variant="orange" size="md">
@@ -684,7 +897,7 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Right Column: Transparent Student Character (baccha2_nobg.png) with Gen Z Floating Badges */}
+          {/* Right Column: Student Character with Glass Floating Badges */}
           <div className="lg:col-span-6 flex justify-center items-end self-end z-10 -mb-1 relative">
             <motion.div
               initial={{ y: 50, opacity: 0 }}
@@ -697,7 +910,7 @@ export default function LandingPage() {
               <motion.div
                 animate={{ y: [0, -8, 0], rotate: [-4, -1, -4] }}
                 transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="absolute top-12 -left-4 sm:-left-12 z-20 bg-genz-pink text-genz-dark font-black text-xs px-3.5 py-1.5 rounded-full border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
+                className="absolute top-12 -left-4 sm:-left-12 z-20 bg-genz-pink/90 backdrop-blur-xl text-genz-dark font-black text-xs px-4 py-2 rounded-full border border-white/60 shadow-lg shadow-genz-pink/20 flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
               >
                 <span>⭐</span>
                 <span>98.4% ATS SCORE</span>
@@ -707,7 +920,7 @@ export default function LandingPage() {
               <motion.div
                 animate={{ y: [0, 8, 0], rotate: [4, 1, 4] }}
                 transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.4 }}
-                className="absolute -top-6 -right-2 sm:-right-8 z-20 bg-genz-yellow text-genz-dark font-black text-xs px-3.5 py-1.5 rounded-full border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
+                className="absolute -top-6 -right-2 sm:-right-8 z-20 bg-genz-yellow/90 backdrop-blur-xl text-genz-dark font-black text-xs px-4 py-2 rounded-full border border-white/60 shadow-lg shadow-genz-yellow/20 flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
               >
                 <span>🚀</span>
                 <span>LEVEL 99 CODER</span>
@@ -717,7 +930,7 @@ export default function LandingPage() {
               <motion.div
                 animate={{ y: [0, -7, 0], rotate: [-5, -2, -5] }}
                 transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut", delay: 0.8 }}
-                className="absolute bottom-20 -right-6 sm:-right-16 z-20 bg-genz-green text-white font-black text-xs px-3.5 py-1.5 rounded-full border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
+                className="absolute bottom-20 -right-6 sm:-right-16 z-20 bg-genz-green/90 backdrop-blur-xl text-white font-black text-xs px-4 py-2 rounded-full border border-white/40 shadow-lg shadow-genz-green/20 flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
               >
                 <span>✅</span>
                 <span>PLACEMENT VERIFIED</span>
@@ -727,21 +940,21 @@ export default function LandingPage() {
               <img
                 src="/baccha2_nobg.png"
                 alt="Placement Ready Student Coder"
-                className="w-full max-w-md sm:max-w-lg h-auto max-h-[440px] object-contain object-bottom filter drop-shadow-[8px_8px_0px_rgba(18,19,24,0.15)] hover:scale-[1.03] transition-transform duration-300 relative z-10"
+                className="w-full max-w-md sm:max-w-lg h-auto max-h-[440px] object-contain object-bottom filter drop-shadow-[0_20px_40px_rgba(18,19,24,0.12)] hover:scale-[1.03] transition-transform duration-300 relative z-10"
               />
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Comprehensive Gen Z Vintage Multi-Column Footer */}
-      <footer className="bg-genz-dark text-white pt-20 pb-12 px-6 border-t-4 border-genz-orange">
+      {/* Comprehensive Gen Z Multi-Column Footer */}
+      <footer className="bg-genz-dark/95 backdrop-blur-2xl text-white pt-20 pb-12 px-6 border-t border-white/10">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 text-left">
             {/* Column 1: Brand & Contact Info */}
             <div className="lg:col-span-1 space-y-5">
               <Link href="/" className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-genz-yellow border-2 border-white text-genz-dark flex items-center justify-center font-extrabold text-xl shadow-retro-hard-orange">
+                <div className="w-10 h-10 rounded-full bg-genz-yellow/90 backdrop-blur-md border border-white/40 text-genz-dark flex items-center justify-center font-extrabold text-xl shadow-lg shadow-genz-yellow/25">
                   P
                 </div>
                 <div className="flex flex-col">
@@ -769,7 +982,7 @@ export default function LandingPage() {
                   {["YT", "𝕏", "IN", "FB", "IG", "M"].map((s, i) => (
                     <span
                       key={i}
-                      className="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 text-genz-yellow font-black text-xs flex items-center justify-center hover:bg-genz-orange hover:text-white hover:border-genz-dark transition-all cursor-pointer"
+                      className="w-8 h-8 rounded-full bg-slate-800/80 backdrop-blur-md border border-slate-700 text-genz-yellow font-black text-xs flex items-center justify-center hover:bg-genz-orange hover:text-white hover:border-transparent transition-all cursor-pointer shadow-sm"
                     >
                       {s}
                     </span>

@@ -16,21 +16,21 @@ export const Badge: React.FC<BadgeProps> = ({
   dot = false,
   className,
 }) => {
-  const baseStyles = "inline-flex items-center font-bold rounded-full tracking-wide border border-genz-dark/80 shadow-[2px_2px_0px_#121318]";
+  const baseStyles = "inline-flex items-center font-extrabold rounded-full tracking-wide backdrop-blur-md transition-all";
 
   const variants = {
-    yellow: "bg-genz-yellow text-genz-dark",
-    pink: "bg-genz-pink text-genz-dark",
-    orange: "bg-genz-orange text-white",
-    blue: "bg-genz-blue text-white",
-    green: "bg-genz-green text-white",
-    lime: "bg-genz-yellow text-genz-dark",
-    dark: "bg-genz-dark text-white border-white/20 shadow-[2px_2px_0px_#FE6622]",
-    soft: "bg-genz-pink/20 text-genz-dark border-genz-pink/40",
-    success: "bg-genz-green/15 text-genz-green border-genz-green/40 shadow-none",
-    warning: "bg-genz-yellow/20 text-yellow-900 border-genz-yellow/50 shadow-none",
-    error: "bg-rose-100 text-rose-800 border-rose-300 shadow-none",
-    outline: "bg-transparent text-genz-dark border-genz-dark shadow-none",
+    yellow: "bg-genz-yellow/85 text-genz-dark border border-white/60 shadow-md shadow-genz-yellow/20",
+    pink: "bg-genz-pink/85 text-genz-dark border border-white/60 shadow-md shadow-genz-pink/20",
+    orange: "bg-genz-orange/90 text-white border border-white/40 shadow-md shadow-genz-orange/25",
+    blue: "bg-genz-blue/90 text-white border border-white/40 shadow-md shadow-genz-blue/25",
+    green: "bg-genz-green/90 text-white border border-white/40 shadow-md shadow-genz-green/25",
+    lime: "bg-genz-yellow/85 text-genz-dark border border-white/60 shadow-md shadow-genz-yellow/20",
+    dark: "bg-genz-dark/90 text-white border border-white/20 shadow-md shadow-black/20",
+    soft: "bg-genz-pink/20 text-genz-dark border border-genz-pink/40 shadow-sm",
+    success: "bg-genz-green/15 text-genz-green border border-genz-green/30 shadow-none",
+    warning: "bg-genz-yellow/20 text-yellow-900 border border-genz-yellow/40 shadow-none",
+    error: "bg-rose-100/80 text-rose-800 border border-rose-300/60 shadow-none",
+    outline: "bg-white/40 text-genz-dark border border-slate-300 shadow-none",
   };
 
   const sizes = {

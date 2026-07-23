@@ -24,43 +24,44 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-bold rounded-button transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed select-none border-2 border-genz-dark";
+    "inline-flex items-center justify-center font-bold rounded-2xl transition-all duration-300 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed select-none backdrop-blur-md";
 
   const variants = {
     primary:
-      "bg-genz-orange text-white hover:bg-[#e25514] shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-genz-orange/95 text-white border border-white/30 shadow-lg shadow-genz-orange/25 hover:bg-genz-orange hover:shadow-xl hover:shadow-genz-orange/35",
     orange:
-      "bg-genz-orange text-white hover:bg-[#e25514] shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-genz-orange/95 text-white border border-white/30 shadow-lg shadow-genz-orange/25 hover:bg-genz-orange hover:shadow-xl hover:shadow-genz-orange/35",
     blue:
-      "bg-genz-blue text-white hover:bg-[#386c96] shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-genz-blue/95 text-white border border-white/30 shadow-lg shadow-genz-blue/25 hover:bg-genz-blue hover:shadow-xl hover:shadow-genz-blue/35",
     yellow:
-      "bg-genz-yellow text-genz-dark hover:bg-[#e2a706] shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-genz-yellow/95 text-genz-dark border border-white/50 shadow-lg shadow-genz-yellow/25 hover:bg-genz-yellow hover:shadow-xl hover:shadow-genz-yellow/35",
     lime:
-      "bg-genz-yellow text-genz-dark hover:bg-[#e2a706] shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-genz-yellow/95 text-genz-dark border border-white/50 shadow-lg shadow-genz-yellow/25 hover:bg-genz-yellow hover:shadow-xl hover:shadow-genz-yellow/35",
     pink:
-      "bg-genz-pink text-genz-dark hover:bg-[#f88eb0] shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-genz-pink/95 text-genz-dark border border-white/50 shadow-lg shadow-genz-pink/25 hover:bg-genz-pink hover:shadow-xl hover:shadow-genz-pink/35",
     green:
-      "bg-genz-green text-white hover:bg-[#008f5c] shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-genz-green/95 text-white border border-white/30 shadow-lg shadow-genz-green/25 hover:bg-genz-green hover:shadow-xl hover:shadow-genz-green/35",
     secondary:
-      "bg-white text-genz-dark border-2 border-genz-dark hover:bg-genz-cream shadow-retro-hard active:translate-x-0.5 active:translate-y-0.5 active:shadow-none",
+      "bg-white/80 text-genz-dark border border-white/80 shadow-md shadow-slate-900/5 hover:bg-white hover:shadow-lg hover:shadow-slate-900/10",
     dark:
-      "bg-genz-dark text-white hover:bg-black border-2 border-white/20 shadow-retro-hard-orange active:translate-x-0.5 active:translate-y-0.5",
+      "bg-genz-dark/90 text-white border border-white/15 shadow-lg shadow-black/20 hover:bg-genz-dark hover:shadow-xl",
     outline:
-      "bg-transparent text-genz-blue border-2 border-genz-blue hover:bg-genz-blue/10 active:translate-x-0.5 active:translate-y-0.5",
+      "bg-white/40 text-genz-blue border border-genz-blue/40 shadow-sm hover:bg-genz-blue/10 hover:border-genz-blue/60",
     ghost:
-      "bg-transparent text-genz-dark border-transparent hover:bg-genz-dark/5 hover:text-genz-orange border-0 shadow-none",
+      "bg-transparent text-genz-dark hover:bg-slate-900/5 hover:text-genz-orange shadow-none",
   };
 
   const sizes = {
-    sm: "text-xs px-3.5 py-1.5 gap-1.5 rounded-xl",
-    md: "text-sm px-5.5 py-2.5 gap-2 rounded-2xl",
-    lg: "text-base px-7 py-3.5 gap-2.5 rounded-2xl",
+    sm: "text-xs px-4 py-2 gap-1.5 rounded-xl",
+    md: "text-sm px-6 py-2.5 gap-2 rounded-2xl",
+    lg: "text-base px-8 py-3.5 gap-2.5 rounded-2xl",
   };
 
   return (
     <motion.button
-      whileHover={{ y: -2 }}
+      whileHover={{ y: -2, scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className={clsx(
         baseStyles,
         variants[variant],
