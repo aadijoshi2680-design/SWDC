@@ -249,14 +249,14 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Horizontal Roadmap Section */}
-      <section id="how-it-works" className="py-24 px-6 bg-genz-yellow/20 border-b-2 border-genz-dark">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center space-y-3">
+      {/* Horizontal Connected Animated Roadmap Section */}
+      <section id="how-it-works" className="py-24 px-6 bg-genz-yellow/20 border-b-2 border-genz-dark relative overflow-hidden">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
             <Badge variant="yellow" size="md">
               PLACEMENT ROADMAP
             </Badge>
-            <h2 className="font-display text-3xl sm:text-4xl font-black text-genz-dark">
+            <h2 className="font-display text-3xl sm:text-5xl font-black text-genz-dark tracking-tight">
               From Zero To Placement Certified
             </h2>
             <p className="text-sm font-semibold text-slate-700">
@@ -264,51 +264,127 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="flex items-center justify-between gap-3 overflow-x-auto pb-6 pt-3 px-2">
-            {roadmapSteps.map((step, idx) => (
-              <div key={idx} className="flex flex-col items-center min-w-[110px] text-center gap-3 shrink-0">
-                <div
-                  className={`w-12 h-12 rounded-2xl ${step.bg} border-2 border-genz-dark text-genz-dark font-black text-base flex items-center justify-center shadow-retro-hard hover:scale-110 transition-transform`}
+          {/* Interactive Connected Roadmap Track with Wavy SVG Path */}
+          <div className="relative pt-6 pb-6">
+            {/* Animated SVG Wavy Path Line (Drawn slowly on scroll) */}
+            <svg
+              className="absolute top-2 left-0 right-0 w-full h-28 pointer-events-none hidden md:block overflow-visible z-0"
+              viewBox="0 0 1200 100"
+              fill="none"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="roadmapWavyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#FE6622" />
+                  <stop offset="25%" stopColor="#FEBE0F" />
+                  <stop offset="50%" stopColor="#FFA4BF" />
+                  <stop offset="75%" stopColor="#4580B2" />
+                  <stop offset="100%" stopColor="#00A56B" />
+                </linearGradient>
+              </defs>
+
+              {/* Background Guide Line */}
+              <path
+                d="M 50 50 C 150 10, 230 90, 350 50 C 470 10, 550 90, 670 50 C 790 10, 870 90, 990 50 C 1090 10, 1140 90, 1180 50"
+                stroke="rgba(18, 19, 24, 0.15)"
+                strokeWidth="6"
+                strokeDasharray="6 6"
+                strokeLinecap="round"
+              />
+
+              {/* Animated Drawing Wavy Line */}
+              <motion.path
+                d="M 50 50 C 150 10, 230 90, 350 50 C 470 10, 550 90, 670 50 C 790 10, 870 90, 990 50 C 1090 10, 1140 90, 1180 50"
+                stroke="url(#roadmapWavyGrad)"
+                strokeWidth="7"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 3.2, ease: "easeInOut" }}
+              />
+            </svg>
+
+            <div className="grid grid-cols-2 md:grid-cols-7 gap-4 relative z-10">
+              {roadmapSteps.map((step, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 35, scale: 0.8 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.35 }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="flex flex-col items-center text-center space-y-3.5 group cursor-pointer"
                 >
-                  0{idx + 1}
-                </div>
-                <span className="text-xs font-bold text-genz-dark">{step.label}</span>
-              </div>
-            ))}
+                  {/* Non-Circular Squarcle Node Shape */}
+                  <div
+                    className={`w-15 h-15 rounded-2xl ${step.bg} border-2 border-genz-dark text-genz-dark font-black text-lg flex items-center justify-center shadow-retro-hard group-hover:rotate-6 transition-all duration-300 relative`}
+                  >
+                    <span>0{idx + 1}</span>
+                    {/* Non-circular Diamond Pin */}
+                    <div className="absolute -top-1 -right-1 w-3.5 h-3.5 rounded-sm bg-white border-2 border-genz-dark rotate-45" />
+                  </div>
+
+                  {/* Step Label Card */}
+                  <div className="w-full p-3.5 rounded-2xl bg-white border-2 border-genz-dark shadow-[3.5px_3.5px_0px_#121318] group-hover:shadow-[5.5px_5.5px_0px_#FE6622] group-hover:bg-genz-cream transition-all duration-300">
+                    <span className="text-xs font-black text-genz-dark leading-snug block">
+                      {step.label}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* AI Mock Interview Showcase Section */}
-      <section className="py-24 px-6 bg-genz-dark text-white relative overflow-hidden">
+      <section className="py-24 px-6 bg-genz-cream border-b-2 border-genz-dark relative overflow-hidden">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Left Column Text */}
           <div className="lg:col-span-6 space-y-6">
             <Badge variant="pink" size="md">
               LIVE MOCK INTERVIEWS
             </Badge>
-            <h2 className="font-display text-3xl sm:text-5xl font-black leading-tight">
+            <h2 className="font-display text-3xl sm:text-5xl font-black text-genz-dark leading-tight">
               Real-Time AI Technical & <br />
-              <span className="text-genz-yellow">HR Speech Evaluation</span>
+              <span className="text-genz-orange">HR Speech Evaluation</span>
             </h2>
-            <p className="text-sm text-slate-300 font-medium leading-relaxed">
-              Practice mock interviews powered by advanced speech AI. Get instant scoring on speaking pace, confidence, keyword usage, and technical depth.
+            <p className="text-sm text-slate-700 font-semibold leading-relaxed">
+              Practice mock interviews powered by advanced speech AI. Get instant scoring on speaking pace, confidence, keyword usage, and technical depth directly on your laptop.
             </p>
 
-            <div className="space-y-3 pt-2">
-              <div className="flex items-start gap-3 bg-genz-surface p-4 rounded-2xl border-2 border-slate-700">
-                <Bot className="w-6 h-6 text-genz-yellow shrink-0 mt-0.5" />
-                <div>
-                  <h5 className="text-sm font-bold text-white">Adaptive Question Engine</h5>
-                  <p className="text-xs text-slate-400">Questions adapt dynamically to your answers and chosen domain (Data Structures, Web, ML, HR).</p>
+            {/* Spacious Uncluttered Square Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="bg-white p-6 rounded-3xl border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex flex-col justify-between space-y-4 hover:shadow-[6px_6px_0px_#FE6622] transition-all"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-genz-yellow border-2 border-genz-dark flex items-center justify-center shadow-retro-hard">
+                  <Bot className="w-6 h-6 text-genz-dark" />
                 </div>
-              </div>
-              <div className="flex items-start gap-3 bg-genz-surface p-4 rounded-2xl border-2 border-slate-700">
-                <Zap className="w-6 h-6 text-genz-orange shrink-0 mt-0.5" />
-                <div>
-                  <h5 className="text-sm font-bold text-white">Instant Speech Analytics</h5>
-                  <p className="text-xs text-slate-400">Receive immediate feedback on filler words, pitch clarity, and structural response quality.</p>
+                <div className="space-y-2">
+                  <h5 className="text-base font-black text-genz-dark">Adaptive Question Engine</h5>
+                  <p className="text-xs text-slate-600 font-semibold leading-relaxed">
+                    Questions adapt dynamically to your response depth across Data Structures, Web, ML, & HR.
+                  </p>
                 </div>
-              </div>
+              </motion.div>
+
+              <motion.div
+                whileHover={{ y: -4 }}
+                className="bg-white p-6 rounded-3xl border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex flex-col justify-between space-y-4 hover:shadow-[6px_6px_0px_#FFA4BF] transition-all"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-genz-pink border-2 border-genz-dark flex items-center justify-center shadow-retro-hard">
+                  <Zap className="w-6 h-6 text-genz-dark" />
+                </div>
+                <div className="space-y-2">
+                  <h5 className="text-base font-black text-genz-dark">Instant Speech Analytics</h5>
+                  <p className="text-xs text-slate-600 font-semibold leading-relaxed">
+                    Real-time analysis on filler words, pitch clarity, speaking pace, & response quality.
+                  </p>
+                </div>
+              </motion.div>
             </div>
 
             <div className="pt-2">
@@ -320,42 +396,63 @@ export default function LandingPage() {
             </div>
           </div>
 
+          {/* Right Column: Realistic Laptop Computer Mockup */}
           <div className="lg:col-span-6">
-            {/* Live Audio / Video Call UI Card */}
-            <div className="bg-slate-900 rounded-[28px] border-4 border-genz-yellow p-6 shadow-[10px_10px_0px_#FFA4BF] space-y-5">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-genz-blue text-white font-black flex items-center justify-center">
-                    AI
+            <div className="relative mx-auto w-full max-w-lg">
+              {/* Laptop Display Top Frame */}
+              <div className="bg-genz-dark rounded-t-3xl p-3 sm:p-4 border-4 border-genz-dark shadow-2xl relative">
+                {/* Laptop Web Camera Dot */}
+                <div className="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600 mx-auto mb-2 flex items-center justify-center">
+                  <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                </div>
+
+                {/* Display Screen */}
+                <div className="bg-slate-900 text-white rounded-2xl p-5 border-2 border-slate-700 space-y-4">
+                  {/* Interview Session Header */}
+                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-xl bg-genz-blue border border-white/20 text-white font-black flex items-center justify-center text-xs">
+                        AI
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-xs sm:text-sm text-white">Senior Tech Interviewer Bot</h4>
+                        <p className="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" /> Active Session • 03:42
+                        </p>
+                      </div>
+                    </div>
+                    <Badge variant="yellow" size="sm">
+                      AUDIO RECORDING
+                    </Badge>
                   </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-white">Senior Tech Interviewer Bot</h4>
-                    <p className="text-xs text-emerald-400 font-semibold">● Active Session • 03:42</p>
+
+                  {/* AI Prompt Screen Box */}
+                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 text-xs">
+                    <div className="flex items-center gap-2 text-genz-pink font-bold">
+                      <MessageSquare className="w-3.5 h-3.5" />
+                      <span>AI Question Prompt:</span>
+                    </div>
+                    <p className="text-slate-300 italic leading-relaxed">
+                      "Explain how you would handle race conditions in a high-concurrency Node.js microservice architecture."
+                    </p>
+                  </div>
+
+                  {/* Speech Clarity Meter */}
+                  <div className="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-2">
+                    <div className="flex justify-between text-xs font-bold">
+                      <span className="text-slate-300">Live Speech Clarity</span>
+                      <span className="text-genz-green">89% - Excellent</span>
+                    </div>
+                    <div className="w-full h-2 bg-slate-950 rounded-full overflow-hidden">
+                      <div className="h-full bg-genz-green rounded-full" style={{ width: "89%" }} />
+                    </div>
                   </div>
                 </div>
-                <Badge variant="yellow" size="sm">
-                  AUDIO RECORDING
-                </Badge>
               </div>
 
-              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3 text-xs">
-                <div className="flex items-center gap-2 text-genz-pink font-bold">
-                  <MessageSquare className="w-4 h-4" />
-                  <span>AI Prompt:</span>
-                </div>
-                <p className="text-slate-300 italic">
-                  "Explain how you would handle race conditions in a high-concurrency Node.js microservice architecture."
-                </p>
-              </div>
-
-              <div className="bg-genz-surface p-4 rounded-2xl border border-slate-700 space-y-2">
-                <div className="flex justify-between text-xs font-bold">
-                  <span className="text-slate-300">Live Speech Clarity</span>
-                  <span className="text-genz-green">89% - Excellent</span>
-                </div>
-                <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                  <div className="h-full bg-genz-green rounded-full" style={{ width: "89%" }} />
-                </div>
+              {/* Laptop Keyboard Base & Trackpad Notch */}
+              <div className="w-[108%] -ml-[4%] h-5 bg-slate-800 rounded-b-2xl border-x-4 border-b-4 border-genz-dark shadow-[6px_6px_0px_#FE6622] relative flex justify-center items-top">
+                <div className="w-16 sm:w-20 h-1.5 bg-slate-700 rounded-b-md" />
               </div>
             </div>
           </div>
