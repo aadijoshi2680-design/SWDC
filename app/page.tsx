@@ -121,13 +121,13 @@ export default function LandingPage() {
         <div className="absolute top-40 right-10 w-[450px] h-[450px] bg-genz-pink/25 rounded-full blur-3xl -z-10 pointer-events-none" />
         <div className="absolute top-60 left-10 w-72 h-72 bg-genz-orange/20 rounded-full blur-2xl -z-10 pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column Text */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-6 space-y-6"
           >
             {/* Top Sticker Pill */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-genz-yellow border-2 border-genz-dark text-genz-dark text-xs font-black shadow-retro-hard">
@@ -177,94 +177,22 @@ export default function LandingPage() {
             </div>
           </motion.div>
 
-          {/* Right Column: Retro TV Arcade Interactive Widget */}
+          {/* Right Column: Direct Brain Video (No starting zoom animation, 2% reduced size) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.15 }}
-            className="lg:col-span-5 relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="lg:col-span-6 relative flex items-center justify-center"
           >
-            {/* Retro TV/Arcade Monitor Frame */}
-            <div className="bg-genz-dark p-4 sm:p-6 rounded-[32px] border-4 border-genz-dark shadow-[10px_10px_0px_#FE6622] space-y-4 text-white relative">
-              {/* TV Antenna / Badge Header */}
-              <div className="flex items-center justify-between border-b-2 border-slate-700 pb-3">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-genz-orange animate-ping" />
-                  <div className="w-3 h-3 rounded-full bg-genz-yellow" />
-                  <div className="w-3 h-3 rounded-full bg-genz-green" />
-                  <span className="font-mono text-xs text-genz-yellow font-bold ml-2">
-                    PREPWISE_RETRO_TV.EXE
-                  </span>
-                </div>
-                <Badge variant="pink" size="sm">
-                  LIVE QUIZ
-                </Badge>
-              </div>
-
-              {/* Interactive Micro Quiz */}
-              <div className="bg-genz-surface p-4 sm:p-5 rounded-2xl border-2 border-slate-700 space-y-4">
-                <div className="flex items-center justify-between text-xs text-slate-400 font-bold uppercase tracking-wider">
-                  <span className="text-genz-yellow flex items-center gap-1">
-                    <Brain className="w-4 h-4" /> Quick Aptitude Test
-                  </span>
-                  <span>Q 01 / 05</span>
-                </div>
-
-                <p className="text-sm font-bold text-white leading-snug">
-                  {quizQuestion.question}
-                </p>
-
-                <div className="space-y-2">
-                  {quizQuestion.options.map((opt, idx) => {
-                    const isSelected = activeQuizOption === idx;
-                    const isCorrect = idx === quizQuestion.correct;
-                    let btnStyle = "bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700";
-                    if (quizSubmitted) {
-                      if (isCorrect) btnStyle = "bg-genz-green text-white border-genz-dark font-bold";
-                      else if (isSelected) btnStyle = "bg-rose-600 text-white border-genz-dark";
-                    } else if (isSelected) {
-                      btnStyle = "bg-genz-yellow text-genz-dark border-genz-dark font-bold shadow-[2px_2px_0px_#FE6622]";
-                    }
-
-                    return (
-                      <button
-                        key={idx}
-                        onClick={() => {
-                          setActiveQuizOption(idx);
-                          setQuizSubmitted(true);
-                        }}
-                        className={`w-full text-left text-xs p-3 rounded-xl border-2 transition-all flex items-center justify-between ${btnStyle}`}
-                      >
-                        <span>{opt}</span>
-                        {quizSubmitted && isCorrect && <Check className="w-4 h-4 text-white" />}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {quizSubmitted && (
-                  <div className="p-2.5 bg-genz-green/20 border border-genz-green rounded-xl text-xs text-emerald-300 font-bold text-center animate-fade-in">
-                    🎉 Correct! 50 Microservices. 1 Coder = 1 microservice/day.
-                  </div>
-                )}
-              </div>
-
-              {/* Student Readiness Badge Widget */}
-              <div className="bg-genz-cream p-4 rounded-2xl border-2 border-genz-dark text-genz-dark flex items-center justify-between shadow-[4px_4px_0px_#4580B2]">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-genz-orange border-2 border-genz-dark text-white font-extrabold flex items-center justify-center text-lg">
-                    ⚡
-                  </div>
-                  <div>
-                    <h5 className="font-extrabold text-sm text-genz-dark">Placement Ready Score</h5>
-                    <p className="text-[11px] text-slate-600 font-semibold">Updated 2 mins ago</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <span className="font-display font-black text-2xl text-genz-orange">94%</span>
-                  <p className="text-[10px] font-bold text-genz-green uppercase">Level: Top 5%</p>
-                </div>
-              </div>
+            <div className="relative w-full max-w-xl lg:max-w-2xl rounded-3xl overflow-hidden">
+              <video
+                src="/brain.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-auto object-contain rounded-3xl scale-[1.08]"
+              />
             </div>
           </motion.div>
         </div>
