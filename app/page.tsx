@@ -396,63 +396,63 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Right Column: Realistic Laptop Computer Mockup */}
+          {/* Right Column: Silver Laptop Computer Mockup with White/Cream Screen */}
           <div className="lg:col-span-6">
             <div className="relative mx-auto w-full max-w-lg">
-              {/* Laptop Display Top Frame */}
-              <div className="bg-genz-dark rounded-t-3xl p-3 sm:p-4 border-4 border-genz-dark shadow-2xl relative">
+              {/* Silver Laptop Display Top Frame */}
+              <div className="bg-slate-200 rounded-t-3xl p-3 sm:p-4 border-4 border-genz-dark shadow-2xl relative">
                 {/* Laptop Web Camera Dot */}
-                <div className="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-600 mx-auto mb-2 flex items-center justify-center">
+                <div className="w-3 h-3 rounded-full bg-slate-300 border-2 border-genz-dark mx-auto mb-2 flex items-center justify-center">
                   <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
                 </div>
 
-                {/* Display Screen */}
-                <div className="bg-slate-900 text-white rounded-2xl p-5 border-2 border-slate-700 space-y-4">
+                {/* Display Screen (Crisp White / Warm Cream Interior) */}
+                <div className="bg-white text-genz-dark rounded-2xl p-5 border-2 border-genz-dark space-y-4 shadow-sm">
                   {/* Interview Session Header */}
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+                  <div className="flex items-center justify-between border-b-2 border-slate-100 pb-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-genz-blue border border-white/20 text-white font-black flex items-center justify-center text-xs">
+                      <div className="w-9 h-9 rounded-xl bg-genz-blue text-white font-black flex items-center justify-center text-xs border border-genz-dark shadow-[2px_2px_0px_#121318]">
                         AI
                       </div>
                       <div>
-                        <h4 className="font-bold text-xs sm:text-sm text-white">Senior Tech Interviewer Bot</h4>
-                        <p className="text-[11px] text-emerald-400 font-semibold flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" /> Active Session • 03:42
+                        <h4 className="font-extrabold text-xs sm:text-sm text-genz-dark">Senior Tech Interviewer Bot</h4>
+                        <p className="text-[11px] text-emerald-600 font-bold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" /> Active Session • 03:42
                         </p>
                       </div>
                     </div>
-                    <Badge variant="yellow" size="sm">
+                    <Badge variant="orange" size="sm">
                       AUDIO RECORDING
                     </Badge>
                   </div>
 
-                  {/* AI Prompt Screen Box */}
-                  <div className="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 text-xs">
-                    <div className="flex items-center gap-2 text-genz-pink font-bold">
+                  {/* AI Prompt Screen Box (Cream Accent) */}
+                  <div className="bg-genz-cream p-4 rounded-xl border-2 border-genz-dark space-y-2 text-xs">
+                    <div className="flex items-center gap-2 text-genz-orange font-black">
                       <MessageSquare className="w-3.5 h-3.5" />
                       <span>AI Question Prompt:</span>
                     </div>
-                    <p className="text-slate-300 italic leading-relaxed">
+                    <p className="text-slate-800 font-semibold italic leading-relaxed">
                       "Explain how you would handle race conditions in a high-concurrency Node.js microservice architecture."
                     </p>
                   </div>
 
                   {/* Speech Clarity Meter */}
-                  <div className="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700 space-y-2">
-                    <div className="flex justify-between text-xs font-bold">
-                      <span className="text-slate-300">Live Speech Clarity</span>
+                  <div className="bg-genz-yellow/15 p-3.5 rounded-xl border-2 border-genz-dark space-y-2">
+                    <div className="flex justify-between text-xs font-black text-genz-dark">
+                      <span>Live Speech Clarity</span>
                       <span className="text-genz-green">89% - Excellent</span>
                     </div>
-                    <div className="w-full h-2 bg-slate-950 rounded-full overflow-hidden">
+                    <div className="w-full h-2.5 bg-white border border-genz-dark rounded-full overflow-hidden">
                       <div className="h-full bg-genz-green rounded-full" style={{ width: "89%" }} />
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Laptop Keyboard Base & Trackpad Notch */}
-              <div className="w-[108%] -ml-[4%] h-5 bg-slate-800 rounded-b-2xl border-x-4 border-b-4 border-genz-dark shadow-[6px_6px_0px_#FE6622] relative flex justify-center items-top">
-                <div className="w-16 sm:w-20 h-1.5 bg-slate-700 rounded-b-md" />
+              {/* Silver Laptop Keyboard Base & Trackpad Notch */}
+              <div className="w-[108%] -ml-[4%] h-5 bg-slate-300 rounded-b-2xl border-x-4 border-b-4 border-genz-dark shadow-[6px_6px_0px_#FE6622] relative flex justify-center items-top">
+                <div className="w-16 sm:w-20 h-1.5 bg-slate-400 border border-slate-500 rounded-b-md" />
               </div>
             </div>
           </div>
