@@ -661,10 +661,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Start Your Placement Journey - Pre-Footer Banner */}
-      <section className="py-20 px-6 bg-gradient-to-r from-genz-yellow/30 via-genz-pink/20 to-genz-blue/20 border-t-4 border-genz-dark relative overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7 space-y-6">
+      {/* Start Your Placement Journey - Pre-Footer Banner with Student Character */}
+      <section className="pt-20 pb-0 px-6 bg-gradient-to-r from-genz-yellow/30 via-genz-pink/20 to-genz-blue/20 border-t-4 border-genz-dark relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-end">
+          <div className="lg:col-span-6 space-y-6 pb-16">
             <Badge variant="orange" size="md">
               START PREPARING TODAY
             </Badge>
@@ -684,25 +684,52 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex justify-center">
-            {/* Student Coding Coder Graphic / Badge */}
-            <div className="bg-white p-6 sm:p-8 rounded-3xl border-4 border-genz-dark shadow-[10px_10px_0px_#4580B2] text-center space-y-4 max-w-md w-full relative">
-              <div className="w-20 h-20 mx-auto rounded-2xl bg-genz-yellow border-2 border-genz-dark flex items-center justify-center text-4xl shadow-retro-hard">
-                👨‍💻
-              </div>
-              <div>
-                <h4 className="font-display font-black text-xl text-genz-dark">KJ Somaiya Coder Pack</h4>
-                <p className="text-xs font-semibold text-slate-600 mt-0.5">Level 99 • Placement Ready</p>
-              </div>
-              <div className="flex items-center justify-center gap-2 pt-1">
-                <span className="bg-genz-pink text-genz-dark font-black text-xs px-3 py-1 rounded-full border border-genz-dark shadow-[2px_2px_0px_#121318]">
-                  ⭐ 98.4% ATS SCORE
-                </span>
-                <span className="bg-genz-green text-white font-black text-xs px-3 py-1 rounded-full border border-genz-dark shadow-[2px_2px_0px_#121318]">
-                  VERIFIED BADGE
-                </span>
-              </div>
-            </div>
+          {/* Right Column: Transparent Student Character (baccha2_nobg.png) with Gen Z Floating Badges */}
+          <div className="lg:col-span-6 flex justify-center items-end self-end z-10 -mb-1 relative">
+            <motion.div
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="relative flex items-end justify-center w-full"
+            >
+              {/* Floating Badge 1 (Pink): Outer Left Area */}
+              <motion.div
+                animate={{ y: [0, -8, 0], rotate: [-4, -1, -4] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+                className="absolute top-12 -left-4 sm:-left-12 z-20 bg-genz-pink text-genz-dark font-black text-xs px-3.5 py-1.5 rounded-full border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
+              >
+                <span>⭐</span>
+                <span>98.4% ATS SCORE</span>
+              </motion.div>
+
+              {/* Floating Badge 2 (Yellow): Upper Right Area */}
+              <motion.div
+                animate={{ y: [0, 8, 0], rotate: [4, 1, 4] }}
+                transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 0.4 }}
+                className="absolute -top-6 -right-2 sm:-right-8 z-20 bg-genz-yellow text-genz-dark font-black text-xs px-3.5 py-1.5 rounded-full border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
+              >
+                <span>🚀</span>
+                <span>LEVEL 99 CODER</span>
+              </motion.div>
+
+              {/* Floating Badge 3 (Green): Lower Right Area */}
+              <motion.div
+                animate={{ y: [0, -7, 0], rotate: [-5, -2, -5] }}
+                transition={{ repeat: Infinity, duration: 3.8, ease: "easeInOut", delay: 0.8 }}
+                className="absolute bottom-20 -right-6 sm:-right-16 z-20 bg-genz-green text-white font-black text-xs px-3.5 py-1.5 rounded-full border-2 border-genz-dark shadow-[4px_4px_0px_#121318] flex items-center gap-1.5 hover:scale-110 transition-transform cursor-pointer whitespace-nowrap"
+              >
+                <span>✅</span>
+                <span>PLACEMENT VERIFIED</span>
+              </motion.div>
+
+              {/* Transparent Kid Character Image */}
+              <img
+                src="/baccha2_nobg.png"
+                alt="Placement Ready Student Coder"
+                className="w-full max-w-md sm:max-w-lg h-auto max-h-[440px] object-contain object-bottom filter drop-shadow-[8px_8px_0px_rgba(18,19,24,0.15)] hover:scale-[1.03] transition-transform duration-300 relative z-10"
+              />
+            </motion.div>
           </div>
         </div>
       </section>
