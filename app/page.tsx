@@ -420,30 +420,113 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section id="colleges" className="py-20 px-6 bg-white border-b-2 border-genz-dark">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center space-y-3">
-            <Badge variant="blue" size="md">
-              PROOF & RESULTS
+      {/* Delivering Job Ready Developers - Infinite Company Logos Marquee Slider */}
+      <section id="colleges" className="py-24 px-6 bg-white border-b-2 border-genz-dark overflow-hidden relative">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <Badge variant="orange" size="md">
+              JOB READY GRADUATES
             </Badge>
-            <h2 className="font-display text-3xl font-black text-genz-dark">
-              Trusted By Top Universities & Students
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-genz-dark tracking-tight">
+              Delivering Job Ready Developers
             </h2>
+            <p className="text-sm font-semibold text-slate-600">
+              Companies where our course graduates and students are working
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            {[
-              { val: "95%", label: "PLACEMENT RATE", bg: "bg-genz-yellow", shadow: "shadow-retro-hard-yellow" },
-              { val: "3.5x", label: "SPEED RUN", bg: "bg-genz-pink", shadow: "shadow-retro-hard-pink" },
-              { val: "100%", label: "VERIFIED SCORES", bg: "bg-genz-blue text-white", shadow: "shadow-retro-hard-blue" },
-              { val: "Live", label: "RECRUITER PORTAL", bg: "bg-genz-green text-white", shadow: "shadow-retro-hard-green" },
-            ].map((stat, idx) => (
-              <div key={idx} className={`p-6 rounded-card border-2 border-genz-dark space-y-2 ${stat.bg} ${stat.shadow}`}>
-                <span className="font-display font-black text-4xl">{stat.val}</span>
-                <div className="text-xs font-black tracking-wider uppercase">{stat.label}</div>
-              </div>
-            ))}
+          {/* Marquee Row 1 (Moving Left) */}
+          <div className="relative w-full overflow-hidden py-3">
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+            <motion.div
+              className="flex items-center gap-6 whitespace-nowrap w-max"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{
+                repeat: Infinity,
+                ease: "linear",
+                duration: 25,
+              }}
+            >
+              {[
+                { name: "Apple", render: () => <span className="font-sans font-black text-xl text-slate-900 flex items-center gap-1.5"><span className="text-2xl leading-none"></span> Apple</span> },
+                { name: "Netflix", render: () => <span className="font-black text-xl text-[#E50914] tracking-wider">NETFLIX</span> },
+                { name: "LinkedIn", render: () => <span className="font-bold text-lg text-slate-900 flex items-center gap-1">Linked<span className="bg-[#0A66C2] text-white px-1.5 py-0.5 rounded text-xs font-black">in</span></span> },
+                { name: "Amazon", render: () => <span className="font-extrabold text-xl text-slate-900 flex items-center gap-1">amazon<span className="text-genz-orange text-sm font-black">↗</span></span> },
+                { name: "Microsoft", render: () => <span className="font-bold text-lg text-slate-800 flex items-center gap-2"><span className="grid grid-cols-2 gap-0.5 w-4 h-4"><span className="bg-[#F25022] w-1.5 h-1.5"></span><span className="bg-[#7FBA00] w-1.5 h-1.5"></span><span className="bg-[#00A4EF] w-1.5 h-1.5"></span><span className="bg-[#FFB900] w-1.5 h-1.5"></span></span>Microsoft</span> },
+                { name: "Oracle", render: () => <span className="font-black text-xl text-[#F80000] tracking-widest">ORACLE</span> },
+                { name: "Dell", render: () => <span className="font-black text-xl text-[#0076CE] tracking-widest">DELL</span> },
+                { name: "X", render: () => <span className="font-black text-2xl text-slate-900">𝕏</span> },
+                { name: "Google", render: () => <span className="font-black text-xl text-slate-900"><span className="text-[#4285F4]">G</span><span className="text-[#EA4335]">o</span><span className="text-[#FBBC05]">o</span><span className="text-[#4285F4]">g</span><span className="text-[#34A853]">l</span><span className="text-[#EA4335]">e</span></span> },
+                { name: "Meta", render: () => <span className="font-extrabold text-xl text-[#0668E1]">∞ Meta</span> },
+              ].concat([
+                { name: "Apple", render: () => <span className="font-sans font-black text-xl text-slate-900 flex items-center gap-1.5"><span className="text-2xl leading-none"></span> Apple</span> },
+                { name: "Netflix", render: () => <span className="font-black text-xl text-[#E50914] tracking-wider">NETFLIX</span> },
+                { name: "LinkedIn", render: () => <span className="font-bold text-lg text-slate-900 flex items-center gap-1">Linked<span className="bg-[#0A66C2] text-white px-1.5 py-0.5 rounded text-xs font-black">in</span></span> },
+                { name: "Amazon", render: () => <span className="font-extrabold text-xl text-slate-900 flex items-center gap-1">amazon<span className="text-genz-orange text-sm font-black">↗</span></span> },
+                { name: "Microsoft", render: () => <span className="font-bold text-lg text-slate-800 flex items-center gap-2"><span className="grid grid-cols-2 gap-0.5 w-4 h-4"><span className="bg-[#F25022] w-1.5 h-1.5"></span><span className="bg-[#7FBA00] w-1.5 h-1.5"></span><span className="bg-[#00A4EF] w-1.5 h-1.5"></span><span className="bg-[#FFB900] w-1.5 h-1.5"></span></span>Microsoft</span> },
+                { name: "Oracle", render: () => <span className="font-black text-xl text-[#F80000] tracking-widest">ORACLE</span> },
+                { name: "Dell", render: () => <span className="font-black text-xl text-[#0076CE] tracking-widest">DELL</span> },
+                { name: "X", render: () => <span className="font-black text-2xl text-slate-900">𝕏</span> },
+                { name: "Google", render: () => <span className="font-black text-xl text-slate-900"><span className="text-[#4285F4]">G</span><span className="text-[#EA4335]">o</span><span className="text-[#FBBC05]">o</span><span className="text-[#4285F4]">g</span><span className="text-[#34A853]">l</span><span className="text-[#EA4335]">e</span></span> },
+                { name: "Meta", render: () => <span className="font-extrabold text-xl text-[#0668E1]">∞ Meta</span> },
+              ]).map((c, i) => (
+                <div
+                  key={i}
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-white border-2 border-genz-dark shadow-[3.5px_3.5px_0px_#121318] hover:bg-genz-yellow hover:scale-105 transition-all duration-200 cursor-pointer shrink-0"
+                >
+                  {c.render()}
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Marquee Row 2 (Moving Right) */}
+          <div className="relative w-full overflow-hidden py-2">
+            <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
+            <motion.div
+              className="flex items-center gap-6 whitespace-nowrap w-max"
+              animate={{ x: ["-50%", "0%"] }}
+              transition={{
+                repeat: Infinity,
+                ease: "linear",
+                duration: 28,
+              }}
+            >
+              {[
+                { name: "Adobe", render: () => <span className="font-black text-xl text-[#FF0000] tracking-wide">Adobe</span> },
+                { name: "Uber", render: () => <span className="font-black text-xl text-slate-900 tracking-tight">Uber</span> },
+                { name: "Spotify", render: () => <span className="font-bold text-lg text-[#1DB954] flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#1DB954]" /> Spotify</span> },
+                { name: "Nvidia", render: () => <span className="font-black text-xl text-[#76B900] tracking-wide">NVIDIA</span> },
+                { name: "Salesforce", render: () => <span className="font-bold text-lg text-[#00A1E0] flex items-center gap-1">☁️ salesforce</span> },
+                { name: "Intel", render: () => <span className="font-extrabold text-xl text-[#0068B5] tracking-wide">intel</span> },
+                { name: "Stripe", render: () => <span className="font-black text-xl text-[#635BFF]">stripe</span> },
+                { name: "Airbnb", render: () => <span className="font-extrabold text-xl text-[#FF5A5F]">airbnb</span> },
+                { name: "Cisco", render: () => <span className="font-black text-xl text-[#049FD9] tracking-wider">CISCO</span> },
+                { name: "Atlassian", render: () => <span className="font-bold text-lg text-[#0052CC] tracking-wider">ATLASSIAN</span> },
+              ].concat([
+                { name: "Adobe", render: () => <span className="font-black text-xl text-[#FF0000] tracking-wide">Adobe</span> },
+                { name: "Uber", render: () => <span className="font-black text-xl text-slate-900 tracking-tight">Uber</span> },
+                { name: "Spotify", render: () => <span className="font-bold text-lg text-[#1DB954] flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-[#1DB954]" /> Spotify</span> },
+                { name: "Nvidia", render: () => <span className="font-black text-xl text-[#76B900] tracking-wide">NVIDIA</span> },
+                { name: "Salesforce", render: () => <span className="font-bold text-lg text-[#00A1E0] flex items-center gap-1">☁️ salesforce</span> },
+                { name: "Intel", render: () => <span className="font-extrabold text-xl text-[#0068B5] tracking-wide">intel</span> },
+                { name: "Stripe", render: () => <span className="font-black text-xl text-[#635BFF]">stripe</span> },
+                { name: "Airbnb", render: () => <span className="font-extrabold text-xl text-[#FF5A5F]">airbnb</span> },
+                { name: "Cisco", render: () => <span className="font-black text-xl text-[#049FD9] tracking-wider">CISCO</span> },
+                { name: "Atlassian", render: () => <span className="font-bold text-lg text-[#0052CC] tracking-wider">ATLASSIAN</span> },
+              ]).map((c, i) => (
+                <div
+                  key={i}
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-2xl bg-white border-2 border-genz-dark shadow-[3.5px_3.5px_0px_#121318] hover:bg-genz-pink hover:scale-105 transition-all duration-200 cursor-pointer shrink-0"
+                >
+                  {c.render()}
+                </div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
