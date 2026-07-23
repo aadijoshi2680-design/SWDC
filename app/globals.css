@@ -5,57 +5,110 @@
 :root {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  --genz-yellow: #FEBE0F;
+  --genz-pink: #FFA4BF;
+  --genz-orange: #FE6622;
+  --genz-blue: #4580B2;
+  --genz-green: #00A56B;
+  --genz-dark: #121318;
+  --genz-cream: #FAF8F5;
 }
 
 body {
-  background-color: #F8FAFC;
-  color: #17161B;
+  background-color: #FAF8F5;
+  color: #121318;
   font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Glassmorphism primitives */
+::selection {
+  background-color: #FEBE0F;
+  color: #121318;
+}
+
+/* Glassmorphism & Retro primitives */
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  border: 2px solid rgba(18, 19, 24, 0.08);
+  box-shadow: 4px 4px 0px rgba(18, 19, 24, 0.06);
 }
 
 .glass-card-dark {
-  background: rgba(23, 22, 27, 0.85);
+  background: rgba(28, 29, 38, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.4);
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(250, 248, 245, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(229, 231, 235, 0.6);
+  border-bottom: 2px solid rgba(18, 19, 24, 0.08);
+}
+
+.retro-badge-pink {
+  background-color: #FFA4BF;
+  color: #121318;
+  font-weight: 700;
+  border: 1.5px solid #121318;
+  box-shadow: 2px 2px 0px #121318;
+}
+
+.retro-badge-yellow {
+  background-color: #FEBE0F;
+  color: #121318;
+  font-weight: 700;
+  border: 1.5px solid #121318;
+  box-shadow: 2px 2px 0px #121318;
+}
+
+.retro-badge-blue {
+  background-color: #4580B2;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1.5px solid #121318;
+  box-shadow: 2px 2px 0px #121318;
+}
+
+.retro-badge-orange {
+  background-color: #FE6622;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1.5px solid #121318;
+  box-shadow: 2px 2px 0px #121318;
+}
+
+.retro-badge-green {
+  background-color: #00A56B;
+  color: #FFFFFF;
+  font-weight: 700;
+  border: 1.5px solid #121318;
+  box-shadow: 2px 2px 0px #121318;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #FAF8F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #4580B2;
   border-radius: 999px;
+  border: 2px solid #FAF8F5;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #FE6622;
 }
 
 /* Card hover animation */
@@ -64,15 +117,27 @@ body {
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px) scale(1.015);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 6px 6px 0px #121318;
 }
 
-/* Neon accent glow */
-.neon-glow {
-  box-shadow: 0 0 25px rgba(210, 252, 89, 0.5);
+/* Neon & Vintage accent glows */
+.yellow-glow {
+  box-shadow: 0 0 25px rgba(254, 190, 15, 0.5);
+}
+
+.orange-glow {
+  box-shadow: 0 0 25px rgba(254, 102, 34, 0.5);
+}
+
+.pink-glow {
+  box-shadow: 0 0 25px rgba(255, 164, 191, 0.5);
 }
 
 .blue-glow {
-  box-shadow: 0 10px 35px rgba(55, 96, 249, 0.3);
+  box-shadow: 0 10px 35px rgba(69, 128, 178, 0.3);
+}
+
+.green-glow {
+  box-shadow: 0 0 25px rgba(0, 165, 107, 0.4);
 }

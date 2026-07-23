@@ -26,49 +26,54 @@ export const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Brand Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="w-10 h-10 rounded-2xl bg-brand-blue text-white flex items-center justify-center font-bold text-xl shadow-glow group-hover:scale-105 transition-transform">
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="w-11 h-11 rounded-2xl bg-genz-yellow border-2 border-genz-dark text-genz-dark flex items-center justify-center font-extrabold text-2xl shadow-retro-hard group-hover:scale-105 transition-transform">
             P
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-xl text-brand-dark tracking-tight leading-none">
-              PrepWise <span className="text-brand-blue">AI</span>
-            </span>
-            <span className="text-[10px] text-brand-muted font-medium tracking-widest uppercase mt-0.5">
-              KJ Somaiya
+            <div className="flex items-center gap-1.5">
+              <span className="font-display font-extrabold text-xl text-genz-dark tracking-tight leading-none">
+                PrepWise
+              </span>
+              <span className="bg-genz-pink text-genz-dark font-black text-xs px-2 py-0.5 rounded-full border border-genz-dark shadow-[1.5px_1.5px_0px_#121318]">
+                AI
+              </span>
+            </div>
+            <span className="text-[10px] text-genz-blue font-bold tracking-widest uppercase mt-1">
+              Gen Z Vintage Prep
             </span>
           </div>
         </Link>
 
         {/* Center Menu Links */}
-        <nav className="hidden md:flex items-center gap-8 bg-white/70 backdrop-blur-md px-6 py-2 rounded-full border border-brand-border/60 shadow-sm">
+        <nav className="hidden md:flex items-center gap-7 bg-white/90 backdrop-blur-md px-7 py-2.5 rounded-2xl border-2 border-genz-dark shadow-retro-hard">
           <Link
             href="/"
-            className="text-sm font-medium text-brand-dark hover:text-brand-blue transition-colors"
+            className="text-sm font-bold text-genz-dark hover:text-genz-orange transition-colors"
           >
             Home
           </Link>
           <Link
             href="#features"
-            className="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors"
+            className="text-sm font-semibold text-slate-700 hover:text-genz-blue transition-colors"
           >
             Features
           </Link>
           <Link
             href="#how-it-works"
-            className="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors"
+            className="text-sm font-semibold text-slate-700 hover:text-genz-blue transition-colors"
           >
             How It Works
           </Link>
           <Link
             href="#certification"
-            className="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors"
+            className="text-sm font-semibold text-slate-700 hover:text-genz-blue transition-colors"
           >
             Certification
           </Link>
           <Link
             href="#colleges"
-            className="text-sm font-medium text-slate-600 hover:text-brand-blue transition-colors"
+            className="text-sm font-semibold text-slate-700 hover:text-genz-blue transition-colors"
           >
             For Colleges
           </Link>
@@ -77,12 +82,12 @@ export const Navbar: React.FC = () => {
         {/* Right Action Buttons */}
         <div className="flex items-center gap-3">
           <Link href="/login">
-            <PrimaryButton variant="ghost" size="sm">
+            <PrimaryButton variant="secondary" size="sm">
               Login
             </PrimaryButton>
           </Link>
           <Link href="/signup">
-            <PrimaryButton variant="primary" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
+            <PrimaryButton variant="orange" size="sm" icon={<ArrowRight className="w-4 h-4" />}>
               Get Started
             </PrimaryButton>
           </Link>

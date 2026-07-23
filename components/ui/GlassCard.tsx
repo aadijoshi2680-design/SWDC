@@ -6,7 +6,7 @@ import { motion, HTMLMotionProps } from "framer-motion";
 
 interface GlassCardProps extends HTMLMotionProps<"div"> {
   children: React.ReactNode;
-  variant?: "glass" | "white" | "soft" | "dark" | "gradient";
+  variant?: "glass" | "white" | "soft" | "dark" | "gradient" | "retro";
   hoverEffect?: boolean;
   padding?: "none" | "sm" | "md" | "lg";
   className?: string;
@@ -20,14 +20,15 @@ export const GlassCard: React.FC<GlassCardProps> = ({
   className,
   ...props
 }) => {
-  const baseStyles = "rounded-card overflow-hidden transition-all duration-300 relative";
+  const baseStyles = "rounded-card overflow-hidden transition-all duration-300 relative border-2 border-genz-dark";
 
   const variants = {
     glass: "glass-card",
-    white: "bg-white border border-brand-border/80 shadow-floating",
-    soft: "bg-brand-soft/30 border border-brand-soft/60 shadow-sm",
-    dark: "bg-brand-dark text-white border border-white/10 shadow-xl",
-    gradient: "bg-gradient-to-br from-white via-slate-50 to-brand-soft/20 border border-brand-border shadow-floating",
+    white: "bg-white border-2 border-genz-dark shadow-retro-hard",
+    soft: "bg-genz-cream border-2 border-genz-dark shadow-retro-hard-yellow",
+    dark: "bg-genz-dark text-white border-2 border-genz-dark shadow-retro-hard-orange",
+    gradient: "bg-gradient-to-br from-white via-genz-cream to-genz-pink/20 border-2 border-genz-dark shadow-retro-hard-blue",
+    retro: "bg-white border-2 border-genz-dark shadow-retro-hard-pink",
   };
 
   const paddings = {
@@ -39,13 +40,12 @@ export const GlassCard: React.FC<GlassCardProps> = ({
 
   return (
     <motion.div
-      whileHover={hoverEffect ? { y: -6, scale: 1.01 } : undefined}
-      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={hoverEffect ? { y: -5 } : undefined}
+      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
       className={clsx(
         baseStyles,
         variants[variant],
         paddings[padding],
-        hoverEffect && "hover:shadow-floating-hover",
         className
       )}
       {...props}

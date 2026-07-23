@@ -20,75 +20,106 @@ import {
   Building2,
   Zap,
   Users,
+  Tv,
+  Gamepad2,
+  GraduationCap,
+  Flame,
+  Check,
+  Brain,
+  MessageSquare,
+  Trophy,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [activeQuizOption, setActiveQuizOption] = useState<number | null>(null);
+  const [quizSubmitted, setQuizSubmitted] = useState(false);
 
   const features = [
     {
       icon: BookOpen,
       title: "Aptitude & Reasoning",
-      desc: "Master logical, quantitative, and verbal reasoning with industry-standard test patterns and detailed solutions.",
+      desc: "Master quantitative logic, spatial reasoning & data interpretation with step-by-step video solutions.",
+      badge: "POPULAR",
+      badgeColor: "yellow" as const,
       link: "/student/assessments",
+      accent: "border-genz-yellow",
     },
     {
-      icon: Sparkles,
-      title: "English Assessment",
-      desc: "Improve your professional vocabulary, verbal fluency, and business communication clarity with detailed feedback.",
+      icon: MessageSquare,
+      title: "English & Fluency AI",
+      desc: "Instant feedback on grammar, corporate vocab, speaking pace, and vocabulary confidence score.",
+      badge: "HOT",
+      badgeColor: "pink" as const,
       link: "/student/assessments",
+      accent: "border-genz-pink",
     },
     {
       icon: Bot,
       title: "AI Mock Interviews",
-      desc: "Real-time mock interviews with adaptive speech evaluation, live transcription, and comprehensive behavioral scoring.",
+      desc: "Interactive live technical & HR mock interviews with real-time feedback report card.",
+      badge: "AI-POWERED",
+      badgeColor: "blue" as const,
       link: "/student/interview",
+      accent: "border-genz-blue",
     },
     {
       icon: FileCheck,
-      title: "Resume & ATS Analysis",
-      desc: "Optimize your resume against actual job descriptions and increase your ATS ranking score instantly.",
+      title: "Resume ATS Matcher",
+      desc: "Scan your resume against top tech company job descriptions and boost keyword density.",
+      badge: "VERIFIED",
+      badgeColor: "green" as const,
       link: "/student/ats-analysis",
+      accent: "border-genz-green",
     },
   ];
 
+  const quizQuestion = {
+    question: "If 6 coders can write 18 microservices in 3 days, how many microservices can 10 coders write in 5 days?",
+    options: ["30 Microservices", "50 Microservices", "45 Microservices", "60 Microservices"],
+    correct: 1,
+  };
+
   const roadmapSteps = [
-    { label: "Registration", active: true },
-    { label: "Aptitude Test", active: true },
-    { label: "English Assmt", active: true },
-    { label: "Psychometric", active: true },
-    { label: "AI Technical", active: true },
-    { label: "AI HR Interview", active: true },
-    { label: "Resume Upload", active: true },
-    { label: "ATS Analysis", active: true },
-    { label: "Dashboard", active: true },
+    { label: "Sign Up", bg: "bg-genz-yellow" },
+    { label: "Aptitude Assessment", bg: "bg-genz-orange" },
+    { label: "English Fluency", bg: "bg-genz-pink" },
+    { label: "AI Tech Interview", bg: "bg-genz-blue" },
+    { label: "HR Behavioral", bg: "bg-genz-green" },
+    { label: "Resume ATS Score", bg: "bg-genz-yellow" },
+    { label: "Verified Badge", bg: "bg-genz-orange" },
   ];
 
   const faqs = [
     {
-      q: "How does the AI interview feedback work?",
-      a: "Our AI evaluates technical depth, grammar, speaking pace, key terminology usage, and confidence level to provide an instant, detailed feedback report after every mock session.",
+      q: "What makes PrepWise AI's Gen Z Vintage style unique for learning?",
+      a: "We combine retro arcade game-like interactive practice challenges with real-world AI placement analytics. It keeps study sessions high-energy, fun, and ultra-effective.",
     },
     {
-      q: "Is the PrepWise certificate recognized by top recruiters?",
+      q: "How does the AI mock interview evaluation work?",
+      a: "Our AI engine analyzes your voice pitch, grammar accuracy, keyword density, and technical correctness to deliver an instant diagnostic report with actionable tips.",
+    },
+    {
+      q: "Are the placement certificates verifiable by recruiters?",
       a: "Yes! Every certificate issued carries a unique cryptographic ID and tamper-proof QR code that employers can instantly verify on our public verification portal.",
     },
     {
-      q: "Can I retake the assessments if my score is low?",
-      a: "Absolutely. Students can retake practice modules and AI mock interviews unlimited times to improve their placement readiness score.",
+      q: "Can I practice assessments on mobile devices?",
+      a: "Absolutely. The platform is 100% responsive and optimized for practice sessions on any smartphone, tablet, or desktop screen.",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-brand-bg text-brand-dark flex flex-col font-sans selection:bg-brand-blue selection:text-white">
+    <div className="min-h-screen bg-genz-cream text-genz-dark flex flex-col font-sans selection:bg-genz-yellow selection:text-genz-dark">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-        {/* Background Decorative Circles & Blobs */}
-        <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-soft/40 rounded-full blur-3xl -z-10 pointer-events-none" />
-        <div className="absolute top-40 right-10 w-72 h-72 bg-brand-lime/20 rounded-full blur-2xl -z-10 pointer-events-none" />
+      <section className="relative pt-36 pb-20 px-6 overflow-hidden">
+        {/* Retro Blobs & Background Flares */}
+        <div className="absolute top-20 left-1/4 w-[600px] h-[350px] bg-genz-yellow/25 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute top-40 right-10 w-[450px] h-[450px] bg-genz-pink/25 rounded-full blur-3xl -z-10 pointer-events-none" />
+        <div className="absolute top-60 left-10 w-72 h-72 bg-genz-orange/20 rounded-full blur-2xl -z-10 pointer-events-none" />
 
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Column Text */}
@@ -98,139 +129,191 @@ export default function LandingPage() {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-6"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/20 text-brand-blue text-xs font-semibold">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Built for KJ Somaiya College of Engineering</span>
+            {/* Top Sticker Pill */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-genz-yellow border-2 border-genz-dark text-genz-dark text-xs font-black shadow-retro-hard">
+              <Sparkles className="w-4 h-4 text-genz-dark animate-spin" />
+              <span>THE COOL WAY TO CRACK PLACEMENTS</span>
+              <span className="bg-genz-orange text-white text-[10px] px-2 py-0.5 rounded-md font-bold uppercase">
+                VINTAGE v2.0
+              </span>
             </div>
 
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-brand-dark leading-[1.1]">
-              Prepare for Placements. <br />
-              <span className="text-brand-blue">Prove Your Skills.</span> <br />
-              Earn Industry-Ready Certification.
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-genz-dark leading-[1.08]">
+              Level Up Your Skills. <br />
+              <span className="bg-genz-yellow text-genz-dark px-2 rounded-lg border-2 border-genz-dark inline-block shadow-retro-hard my-1">
+                Crack Placements.
+              </span> <br />
+              <span className="text-genz-blue">Ace Every AI Interview.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-brand-muted max-w-xl font-normal leading-relaxed">
-              PrepWise AI is an intelligent placement preparation platform that combines aptitude assessments, English communication analysis, AI-powered mock interviews, resume ATS optimization, and verifiable certification into one seamless learning experience.
+            <p className="text-base sm:text-lg text-slate-700 max-w-xl font-semibold leading-relaxed">
+              PrepWise AI combines retro arcade learning energy with cutting-edge AI evaluations: aptitude drills, English communication scoring, live mock interviews, and ATS resume verification.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-4">
+            {/* CTAs */}
+            <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link href="/signup">
-                <PrimaryButton variant="primary" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
-                  Start Preparing
+                <PrimaryButton variant="orange" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
+                  Start Learning Now
                 </PrimaryButton>
               </Link>
               <Link href="/student/dashboard">
-                <PrimaryButton variant="secondary" size="lg">
-                  Explore Platform
+                <PrimaryButton variant="blue" size="lg" icon={<Gamepad2 className="w-5 h-5" />}>
+                  Try Demo Arcade
                 </PrimaryButton>
               </Link>
             </div>
+
+            {/* Quick stats pills */}
+            <div className="pt-4 flex flex-wrap items-center gap-3 text-xs font-bold">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white border-2 border-genz-dark shadow-[2px_2px_0px_#121318]">
+                <Flame className="w-4 h-4 text-genz-orange" />
+                <span>15,000+ Active Learners</span>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-genz-pink/40 border-2 border-genz-dark shadow-[2px_2px_0px_#121318]">
+                <Trophy className="w-4 h-4 text-genz-dark" />
+                <span>94.8% Placement Pass Rate</span>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right Column Floating Mockup */}
+          {/* Right Column: Retro TV Arcade Interactive Widget */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.15 }}
             className="lg:col-span-5 relative"
           >
-            <div className="relative z-10 space-y-4">
-              {/* Floating Pill Badges */}
-              <div className="flex flex-wrap gap-2 justify-end">
-                <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md shadow-sm border border-brand-border text-xs font-semibold text-brand-dark flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-brand-blue" /> Aptitude
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md shadow-sm border border-brand-border text-xs font-semibold text-brand-dark flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-brand-lime" /> English
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md shadow-sm border border-brand-border text-xs font-semibold text-brand-dark flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-purple-500" /> AI Interview
-                </span>
-                <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md shadow-sm border border-brand-border text-xs font-semibold text-brand-dark flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" /> Resume + ATS
-                </span>
+            {/* Retro TV/Arcade Monitor Frame */}
+            <div className="bg-genz-dark p-4 sm:p-6 rounded-[32px] border-4 border-genz-dark shadow-[10px_10px_0px_#FE6622] space-y-4 text-white relative">
+              {/* TV Antenna / Badge Header */}
+              <div className="flex items-center justify-between border-b-2 border-slate-700 pb-3">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-genz-orange animate-ping" />
+                  <div className="w-3 h-3 rounded-full bg-genz-yellow" />
+                  <div className="w-3 h-3 rounded-full bg-genz-green" />
+                  <span className="font-mono text-xs text-genz-yellow font-bold ml-2">
+                    PREPWISE_RETRO_TV.EXE
+                  </span>
+                </div>
+                <Badge variant="pink" size="sm">
+                  LIVE QUIZ
+                </Badge>
               </div>
 
-              {/* Main Glass Widget Preview */}
-              <GlassCard variant="glass" className="p-6 border-white/80 space-y-5">
-                <div className="flex items-center justify-between">
+              {/* Interactive Micro Quiz */}
+              <div className="bg-genz-surface p-4 sm:p-5 rounded-2xl border-2 border-slate-700 space-y-4">
+                <div className="flex items-center justify-between text-xs text-slate-400 font-bold uppercase tracking-wider">
+                  <span className="text-genz-yellow flex items-center gap-1">
+                    <Brain className="w-4 h-4" /> Quick Aptitude Test
+                  </span>
+                  <span>Q 01 / 05</span>
+                </div>
+
+                <p className="text-sm font-bold text-white leading-snug">
+                  {quizQuestion.question}
+                </p>
+
+                <div className="space-y-2">
+                  {quizQuestion.options.map((opt, idx) => {
+                    const isSelected = activeQuizOption === idx;
+                    const isCorrect = idx === quizQuestion.correct;
+                    let btnStyle = "bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-700";
+                    if (quizSubmitted) {
+                      if (isCorrect) btnStyle = "bg-genz-green text-white border-genz-dark font-bold";
+                      else if (isSelected) btnStyle = "bg-rose-600 text-white border-genz-dark";
+                    } else if (isSelected) {
+                      btnStyle = "bg-genz-yellow text-genz-dark border-genz-dark font-bold shadow-[2px_2px_0px_#FE6622]";
+                    }
+
+                    return (
+                      <button
+                        key={idx}
+                        onClick={() => {
+                          setActiveQuizOption(idx);
+                          setQuizSubmitted(true);
+                        }}
+                        className={`w-full text-left text-xs p-3 rounded-xl border-2 transition-all flex items-center justify-between ${btnStyle}`}
+                      >
+                        <span>{opt}</span>
+                        {quizSubmitted && isCorrect && <Check className="w-4 h-4 text-white" />}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {quizSubmitted && (
+                  <div className="p-2.5 bg-genz-green/20 border border-genz-green rounded-xl text-xs text-emerald-300 font-bold text-center animate-fade-in">
+                    🎉 Correct! 50 Microservices. 1 Coder = 1 microservice/day.
+                  </div>
+                )}
+              </div>
+
+              {/* Student Readiness Badge Widget */}
+              <div className="bg-genz-cream p-4 rounded-2xl border-2 border-genz-dark text-genz-dark flex items-center justify-between shadow-[4px_4px_0px_#4580B2]">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-genz-orange border-2 border-genz-dark text-white font-extrabold flex items-center justify-center text-lg">
+                    ⚡
+                  </div>
                   <div>
-                    <h4 className="font-display font-bold text-lg text-brand-dark">Aaditya Johnson</h4>
-                    <p className="text-xs text-brand-muted">B.Tech - Computer Engineering</p>
-                  </div>
-                  <Badge variant="lime" dot>
-                    GOLD CERTIFIED
-                  </Badge>
-                </div>
-
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-white/80 p-3.5 rounded-2xl border border-slate-100">
-                    <span className="text-[11px] text-slate-500 font-medium uppercase tracking-wider">ATS Score</span>
-                    <p className="font-display font-extrabold text-2xl text-brand-blue mt-0.5">88 / 100</p>
-                  </div>
-                  <div className="bg-white/80 p-3.5 rounded-2xl border border-slate-100">
-                    <span className="text-[11px] text-slate-500 font-medium uppercase tracking-wider">Readiness</span>
-                    <p className="font-display font-extrabold text-2xl text-emerald-600 mt-0.5">92% Ready</p>
+                    <h5 className="font-extrabold text-sm text-genz-dark">Placement Ready Score</h5>
+                    <p className="text-[11px] text-slate-600 font-semibold">Updated 2 mins ago</p>
                   </div>
                 </div>
-
-                {/* Skill Matrix bars */}
-                <div className="space-y-2 pt-1">
-                  <div className="flex justify-between text-xs font-medium">
-                    <span>Aptitude Mastery</span>
-                    <span className="font-bold text-brand-blue">94%</span>
-                  </div>
-                  <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-brand-blue rounded-full" style={{ width: "94%" }} />
-                  </div>
-                  <div className="flex justify-between text-xs font-medium">
-                    <span>Communication</span>
-                    <span className="font-bold text-brand-blue">86%</span>
-                  </div>
-                  <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-brand-blue rounded-full" style={{ width: "86%" }} />
-                  </div>
+                <div className="text-right">
+                  <span className="font-display font-black text-2xl text-genz-orange">94%</span>
+                  <p className="text-[10px] font-bold text-genz-green uppercase">Level: Top 5%</p>
                 </div>
-              </GlassCard>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Feature Cards Section */}
-      <section id="features" className="py-20 px-6 bg-white border-y border-brand-border/60">
-        <div className="max-w-7xl mx-auto space-y-12">
-          <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <Badge variant="blue">Everything You Need</Badge>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-brand-dark">
-              Everything You Need To Get Placement Ready
+      <section id="features" className="py-24 px-6 bg-white border-y-2 border-genz-dark">
+        <div className="max-w-7xl mx-auto space-y-14">
+          <div className="text-center space-y-4 max-w-2xl mx-auto">
+            <Badge variant="pink" size="md">
+              POWERFUL LEARNING TRACKS
+            </Badge>
+            <h2 className="font-display text-3xl sm:text-5xl font-black tracking-tight text-genz-dark">
+              Built For Serious Results. <br />
+              <span className="text-genz-orange">Styled For Gen Z.</span>
             </h2>
-            <p className="text-sm text-brand-muted">
-              Structured learning tracks engineered to elevate your aptitude, communication, and technical interview skills.
+            <p className="text-sm font-semibold text-slate-600">
+              Interactive, gamified preparation modules designed to maximize your assessment scores and mock interview performance.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
             {features.map((f, i) => {
               const Icon = f.icon;
               return (
                 <GlassCard
                   key={i}
                   variant="white"
-                  className="p-7 space-y-4 hover:border-brand-blue/30 group"
+                  className={`p-7 space-y-5 border-2 ${f.accent} group hover:-translate-y-2 transition-all`}
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-brand-blue/10 text-brand-blue flex items-center justify-center group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
-                    <Icon className="w-6 h-6" />
+                  <div className="flex items-center justify-between">
+                    <div className="w-12 h-12 rounded-2xl bg-genz-dark text-genz-yellow border-2 border-genz-dark flex items-center justify-center shadow-retro-hard group-hover:scale-110 transition-transform">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <Badge variant={f.badgeColor} size="sm">
+                      {f.badge}
+                    </Badge>
                   </div>
-                  <h3 className="font-display font-semibold text-xl text-brand-dark">{f.title}</h3>
-                  <p className="text-xs text-brand-muted leading-relaxed">{f.desc}</p>
-                  <Link
-                    href={f.link}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-brand-blue hover:underline pt-2"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+
+                  <h3 className="font-display font-extrabold text-xl text-genz-dark">{f.title}</h3>
+                  <p className="text-xs font-medium text-slate-600 leading-relaxed">{f.desc}</p>
+                  
+                  <div className="pt-2">
+                    <Link href={f.link}>
+                      <PrimaryButton variant={f.badgeColor} size="sm" fullWidth icon={<ArrowRight className="w-4 h-4" />}>
+                        Explore Module
+                      </PrimaryButton>
+                    </Link>
+                  </div>
                 </GlassCard>
               );
             })}
@@ -239,91 +322,111 @@ export default function LandingPage() {
       </section>
 
       {/* Horizontal Roadmap Section */}
-      <section id="how-it-works" className="py-20 px-6 bg-brand-soft/20">
+      <section id="how-it-works" className="py-24 px-6 bg-genz-yellow/20 border-b-2 border-genz-dark">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-3">
-            <h2 className="font-display text-3xl font-bold text-brand-dark">
-              Your Professional Journey
+            <Badge variant="yellow" size="md">
+              PLACEMENT ROADMAP
+            </Badge>
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-genz-dark">
+              From Zero To Placement Certified
             </h2>
-            <p className="text-sm text-brand-muted">
-              A comprehensive roadmap from registration to verified placement excellence.
+            <p className="text-sm font-semibold text-slate-700">
+              Follow our clear step-by-step roadmap to master every phase of campus recruitment.
             </p>
           </div>
 
-          <div className="flex items-center justify-between gap-2 overflow-x-auto pb-4 pt-2">
+          <div className="flex items-center justify-between gap-3 overflow-x-auto pb-6 pt-3 px-2">
             {roadmapSteps.map((step, idx) => (
-              <div key={idx} className="flex flex-col items-center min-w-[90px] text-center gap-2 shrink-0">
-                <div className="w-10 h-10 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-blue font-bold text-xs shadow-sm hover:border-brand-blue transition-colors">
-                  {idx + 1}
+              <div key={idx} className="flex flex-col items-center min-w-[110px] text-center gap-3 shrink-0">
+                <div
+                  className={`w-12 h-12 rounded-2xl ${step.bg} border-2 border-genz-dark text-genz-dark font-black text-base flex items-center justify-center shadow-retro-hard hover:scale-110 transition-transform`}
+                >
+                  0{idx + 1}
                 </div>
-                <span className="text-[11px] font-medium text-slate-700">{step.label}</span>
+                <span className="text-xs font-bold text-genz-dark">{step.label}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Intelligent Tracking Dashboard Mockup */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto space-y-8 text-center">
-          <h2 className="font-display text-3xl font-bold text-brand-dark">
-            Intelligent Tracking Dashboard
-          </h2>
+      {/* AI Mock Interview Showcase Section */}
+      <section className="py-24 px-6 bg-genz-dark text-white relative overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="lg:col-span-6 space-y-6">
+            <Badge variant="pink" size="md">
+              LIVE MOCK INTERVIEWS
+            </Badge>
+            <h2 className="font-display text-3xl sm:text-5xl font-black leading-tight">
+              Real-Time AI Technical & <br />
+              <span className="text-genz-yellow">HR Speech Evaluation</span>
+            </h2>
+            <p className="text-sm text-slate-300 font-medium leading-relaxed">
+              Practice mock interviews powered by advanced speech AI. Get instant scoring on speaking pace, confidence, keyword usage, and technical depth.
+            </p>
 
-          <div className="p-3 bg-slate-900 rounded-[32px] shadow-2xl overflow-hidden border border-slate-800">
-            <div className="bg-brand-bg rounded-[24px] p-6 text-left space-y-6">
-              <div className="flex items-center justify-between border-b border-brand-border pb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-bold">
-                    AJ
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-brand-dark">Alex Johnson</h4>
-                    <p className="text-xs text-brand-muted">B.Tech • Computer Science</p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <Badge variant="lime">ATS SCORE: 88/100</Badge>
-                  <Badge variant="blue">GOLD CERTIFIED</Badge>
+            <div className="space-y-3 pt-2">
+              <div className="flex items-start gap-3 bg-genz-surface p-4 rounded-2xl border-2 border-slate-700">
+                <Bot className="w-6 h-6 text-genz-yellow shrink-0 mt-0.5" />
+                <div>
+                  <h5 className="text-sm font-bold text-white">Adaptive Question Engine</h5>
+                  <p className="text-xs text-slate-400">Questions adapt dynamically to your answers and chosen domain (Data Structures, Web, ML, HR).</p>
                 </div>
               </div>
+              <div className="flex items-start gap-3 bg-genz-surface p-4 rounded-2xl border-2 border-slate-700">
+                <Zap className="w-6 h-6 text-genz-orange shrink-0 mt-0.5" />
+                <div>
+                  <h5 className="text-sm font-bold text-white">Instant Speech Analytics</h5>
+                  <p className="text-xs text-slate-400">Receive immediate feedback on filler words, pitch clarity, and structural response quality.</p>
+                </div>
+              </div>
+            </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-white p-5 rounded-2xl border border-brand-border">
-                  <h5 className="text-xs font-bold text-slate-500 mb-3">Weekly Readiness</h5>
-                  <div className="h-32 flex items-end justify-between gap-3 pt-4">
-                    {[40, 55, 65, 80, 92].map((h, i) => (
-                      <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                        <div
-                          className="w-full bg-brand-blue rounded-t-lg transition-all"
-                          style={{ height: `${h}%` }}
-                        />
-                        <span className="text-[10px] text-slate-400">W{i + 1}</span>
-                      </div>
-                    ))}
+            <div className="pt-2">
+              <Link href="/student/interview">
+                <PrimaryButton variant="orange" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
+                  Start AI Interview Session
+                </PrimaryButton>
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-6">
+            {/* Live Audio / Video Call UI Card */}
+            <div className="bg-slate-900 rounded-[28px] border-4 border-genz-yellow p-6 shadow-[10px_10px_0px_#FFA4BF] space-y-5">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-genz-blue text-white font-black flex items-center justify-center">
+                    AI
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm text-white">Senior Tech Interviewer Bot</h4>
+                    <p className="text-xs text-emerald-400 font-semibold">● Active Session • 03:42</p>
                   </div>
                 </div>
+                <Badge variant="yellow" size="sm">
+                  AUDIO RECORDING
+                </Badge>
+              </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-brand-border space-y-3">
-                  <h5 className="text-xs font-bold text-slate-500">Skill Matrix</h5>
-                  <div className="space-y-2 text-xs">
-                    <div className="flex justify-between">
-                      <span>Aptitude</span>
-                      <span className="font-bold text-brand-blue">92%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Communication</span>
-                      <span className="font-bold text-brand-blue">78%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Technical</span>
-                      <span className="font-bold text-brand-blue">85%</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>HR Readiness</span>
-                      <span className="font-bold text-brand-blue">90%</span>
-                    </div>
-                  </div>
+              <div className="bg-slate-950 p-4 rounded-2xl border border-slate-800 space-y-3 text-xs">
+                <div className="flex items-center gap-2 text-genz-pink font-bold">
+                  <MessageSquare className="w-4 h-4" />
+                  <span>AI Prompt:</span>
+                </div>
+                <p className="text-slate-300 italic">
+                  "Explain how you would handle race conditions in a high-concurrency Node.js microservice architecture."
+                </p>
+              </div>
+
+              <div className="bg-genz-surface p-4 rounded-2xl border border-slate-700 space-y-2">
+                <div className="flex justify-between text-xs font-bold">
+                  <span className="text-slate-300">Live Speech Clarity</span>
+                  <span className="text-genz-green">89% - Excellent</span>
+                </div>
+                <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div className="h-full bg-genz-green rounded-full" style={{ width: "89%" }} />
                 </div>
               </div>
             </div>
@@ -331,84 +434,86 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Become Placement Certified */}
-      <section id="certification" className="py-20 px-6 bg-brand-soft/30 border-t border-brand-border/60">
+      {/* Certification Section */}
+      <section id="certification" className="py-24 px-6 bg-genz-cream border-b-2 border-genz-dark">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 space-y-6">
-            <Badge variant="blue">Official Credential</Badge>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-brand-dark">
-              Become Placement Certified
+            <Badge variant="green" size="md">
+              VERIFIED CREDENTIAL
+            </Badge>
+            <h2 className="font-display text-3xl sm:text-4xl font-black text-genz-dark">
+              Earn Industry Recognized <br />
+              <span className="text-genz-green">Placement Certificates</span>
             </h2>
-            <p className="text-sm text-brand-muted leading-relaxed">
-              Our certifications represent a verified analysis of your cognitive abilities, communication skills, and technical aptitude through rigorous AI-driven evaluations.
+            <p className="text-sm font-semibold text-slate-700 leading-relaxed">
+              Showcase tamper-proof credentials with live QR code verification on LinkedIn and directly to hiring recruiters.
             </p>
 
             <div className="space-y-3">
-              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-brand-border">
-                <ShieldCheck className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border-2 border-genz-dark shadow-[3px_3px_0px_#121318]">
+                <ShieldCheck className="w-5 h-5 text-genz-green shrink-0 mt-0.5" />
                 <div>
-                  <h5 className="text-xs font-bold text-brand-dark">Secure Verification</h5>
-                  <p className="text-xs text-brand-muted">
-                    Each certificate is stored on our secure ledger for tamper-proof verification.
-                  </p>
+                  <h5 className="text-xs font-black text-genz-dark">Cryptographic Verification</h5>
+                  <p className="text-xs text-slate-600 font-medium">Unique hash key stored securely for instant employer authentication.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-brand-border">
-                <Zap className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3 bg-white p-4 rounded-2xl border-2 border-genz-dark shadow-[3px_3px_0px_#121318]">
+                <Award className="w-5 h-5 text-genz-orange shrink-0 mt-0.5" />
                 <div>
-                  <h5 className="text-xs font-bold text-brand-dark">QR Enabled</h5>
-                  <p className="text-xs text-brand-muted">
-                    Instantly verifiable by employers through a simple QR scan during interviews.
-                  </p>
+                  <h5 className="text-xs font-black text-genz-dark">QR Code Badge</h5>
+                  <p className="text-xs text-slate-600 font-medium">Recruiters scan the QR code on your resume to view full assessment transcripts.</p>
                 </div>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-6">
-            <GlassCard variant="white" className="p-8 border-2 border-brand-blue/20 shadow-2xl text-center space-y-4">
-              <div className="text-[10px] font-bold tracking-widest text-amber-600 uppercase">
-                CERTIFICATE OF EXCELLENCE
+            <GlassCard variant="white" className="p-8 border-4 border-genz-dark text-center space-y-5 shadow-[10px_10px_0px_#00A56B]">
+              <div className="inline-block bg-genz-yellow text-genz-dark font-black text-[11px] px-3 py-1 rounded-full border border-genz-dark">
+                OFFICIAL CERTIFICATE OF MASTERY
               </div>
-              <h3 className="font-display font-extrabold text-2xl text-brand-dark">Alex Johnson</h3>
-              <p className="text-xs text-slate-500">
-                has successfully demonstrated industry-level proficiency in <br />
-                <span className="font-semibold text-brand-dark">Full Stack Engineering & Soft Skills</span>
+              <h3 className="font-display font-black text-2xl text-genz-dark">Aaditya Johnson</h3>
+              <p className="text-xs font-semibold text-slate-600">
+                demonstrated top-tier performance in <br />
+                <span className="font-bold text-genz-dark">Full-Stack Technical Aptitude & English Fluency</span>
               </p>
-              <div className="pt-4 flex justify-between items-center text-[10px] text-slate-400 border-t border-slate-100">
-                <span>VERIFICATION ID: PW-AI-2026-9981-XC</span>
-                <span className="font-bold text-brand-blue">KJ SOMAIYA CERTIFIED</span>
+
+              <div className="p-4 bg-genz-cream rounded-2xl border-2 border-genz-dark flex items-center justify-between text-left">
+                <div>
+                  <span className="text-[10px] font-bold text-slate-500 uppercase">Verification Code</span>
+                  <p className="font-mono font-bold text-xs text-genz-blue">PW-2026-VINTAGE-9981</p>
+                </div>
+                <div className="w-10 h-10 bg-genz-dark rounded-lg text-white font-mono text-[10px] font-bold flex items-center justify-center">
+                  QR
+                </div>
               </div>
             </GlassCard>
           </div>
         </div>
       </section>
 
-      {/* Empowering Institutions stats */}
-      <section id="colleges" className="py-20 px-6 bg-white border-t border-brand-border">
+      {/* Stats Section */}
+      <section id="colleges" className="py-20 px-6 bg-white border-b-2 border-genz-dark">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-3">
-            <h2 className="font-display text-3xl font-bold text-brand-dark">
-              Empowering Educational Institutions
+            <Badge variant="blue" size="md">
+              PROOF & RESULTS
+            </Badge>
+            <h2 className="font-display text-3xl font-black text-genz-dark">
+              Trusted By Top Universities & Students
             </h2>
-            <p className="text-sm text-brand-muted">
-              Streamlining placement preparation for modern universities.
-            </p>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             {[
-              { val: "95%", label: "STUDENT SUCCESS", sub: "Increase in placement percentage" },
-              { val: "3x", label: "READINESS SPEED", sub: "Faster skill acquisition" },
-              { val: "100%", label: "DETAILED REPORTS", sub: "Individual performance analytics" },
-              { val: "Live", label: "PLACEMENT ANALYTICS", sub: "Real-time TPO tracking" },
+              { val: "95%", label: "PLACEMENT RATE", bg: "bg-genz-yellow", shadow: "shadow-retro-hard-yellow" },
+              { val: "3.5x", label: "SPEED RUN", bg: "bg-genz-pink", shadow: "shadow-retro-hard-pink" },
+              { val: "100%", label: "VERIFIED SCORES", bg: "bg-genz-blue text-white", shadow: "shadow-retro-hard-blue" },
+              { val: "Live", label: "RECRUITER PORTAL", bg: "bg-genz-green text-white", shadow: "shadow-retro-hard-green" },
             ].map((stat, idx) => (
-              <div key={idx} className="bg-brand-soft/20 p-6 rounded-card border border-brand-soft/60 space-y-2">
-                <span className="font-display font-extrabold text-3xl sm:text-4xl text-brand-blue">
-                  {stat.val}
-                </span>
-                <div className="text-xs font-bold text-brand-dark tracking-wider">{stat.label}</div>
-                <p className="text-[11px] text-brand-muted">{stat.sub}</p>
+              <div key={idx} className={`p-6 rounded-card border-2 border-genz-dark space-y-2 ${stat.bg} ${stat.shadow}`}>
+                <span className="font-display font-black text-4xl">{stat.val}</span>
+                <div className="text-xs font-black tracking-wider uppercase">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -416,29 +521,29 @@ export default function LandingPage() {
       </section>
 
       {/* FAQ Accordion */}
-      <section className="py-20 px-6 bg-brand-bg">
+      <section className="py-24 px-6 bg-genz-cream">
         <div className="max-w-3xl mx-auto space-y-8">
-          <h2 className="font-display text-3xl font-bold text-center text-brand-dark">
-            Frequently Asked Questions
+          <h2 className="font-display text-3xl font-black text-center text-genz-dark">
+            Got Questions? We Got Answers.
           </h2>
 
           <div className="space-y-4">
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-brand-border overflow-hidden cursor-pointer"
+                className="bg-white rounded-2xl border-2 border-genz-dark shadow-retro-hard overflow-hidden cursor-pointer transition-transform hover:-translate-y-0.5"
                 onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
               >
-                <div className="p-5 flex items-center justify-between font-semibold text-sm text-brand-dark">
+                <div className="p-5 flex items-center justify-between font-extrabold text-sm text-genz-dark">
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-slate-400 transition-transform ${
-                      openFaq === idx ? "rotate-180 text-brand-blue" : ""
+                    className={`w-5 h-5 text-genz-dark transition-transform ${
+                      openFaq === idx ? "rotate-180 text-genz-orange" : ""
                     }`}
                   />
                 </div>
                 {openFaq === idx && (
-                  <div className="px-5 pb-5 text-xs text-brand-muted leading-relaxed border-t border-slate-50 pt-3">
+                  <div className="px-5 pb-5 text-xs text-slate-700 font-semibold leading-relaxed border-t-2 border-slate-100 pt-3">
                     {faq.a}
                   </div>
                 )}
@@ -448,21 +553,27 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Corporate Partners Footer Banner */}
-      <div className="bg-brand-dark py-12 px-6 text-white text-center space-y-6">
-        <h4 className="text-xs uppercase tracking-widest font-semibold text-slate-400">
-          Built for Modern Placements & Trusted by Industry Leaders
-        </h4>
-        <div className="flex flex-wrap items-center justify-center gap-8 text-xs font-bold text-slate-400 uppercase tracking-widest">
-          {["GOOGLE", "MICROSOFT", "AMAZON", "APPLE", "ADOBE", "INTEL", "ORACLE", "ACCENTURE", "INFOSYS", "TCS"].map(
-            (c, i) => (
-              <span key={i} className="hover:text-brand-lime transition-colors">
-                {c}
-              </span>
-            )
-          )}
+      {/* Footer Banner */}
+      <footer className="bg-genz-dark py-14 px-6 text-white text-center space-y-6 border-t-4 border-genz-orange">
+        <div className="max-w-5xl mx-auto space-y-4">
+          <div className="flex items-center justify-center gap-2">
+            <span className="font-display font-black text-2xl text-genz-yellow">PrepWise AI</span>
+            <Badge variant="pink" size="sm">GEN Z VINTAGE</Badge>
+          </div>
+          <p className="text-xs text-slate-400 font-medium">
+            Empowering students with smart learning tools, AI mock interviews, and placement analytics.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-xs font-bold text-slate-300">
+            {["GOOGLE", "MICROSOFT", "AMAZON", "APPLE", "ADOBE", "INTEL", "ORACLE", "ACCENTURE", "TCS"].map(
+              (c, i) => (
+                <span key={i} className="hover:text-genz-yellow transition-colors">
+                  {c}
+                </span>
+              )
+            )}
+          </div>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
