@@ -661,24 +661,163 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer Banner */}
-      <footer className="bg-genz-dark py-14 px-6 text-white text-center space-y-6 border-t-4 border-genz-orange">
-        <div className="max-w-5xl mx-auto space-y-4">
-          <div className="flex items-center justify-center gap-2">
-            <span className="font-display font-black text-2xl text-genz-yellow">PrepWise AI</span>
-            <Badge variant="pink" size="sm">GEN Z VINTAGE</Badge>
+      {/* Start Your Placement Journey - Pre-Footer Banner */}
+      <section className="py-20 px-6 bg-gradient-to-r from-genz-yellow/30 via-genz-pink/20 to-genz-blue/20 border-t-4 border-genz-dark relative overflow-hidden">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7 space-y-6">
+            <Badge variant="orange" size="md">
+              START PREPARING TODAY
+            </Badge>
+            <h2 className="font-display text-3xl sm:text-5xl font-black text-genz-dark tracking-tight leading-tight">
+              Start Your Placement Journey <br />
+              <span className="text-genz-orange">With PrepWise AI</span>
+            </h2>
+            <p className="text-base font-semibold text-slate-700 max-w-xl leading-relaxed">
+              Join thousands mastering aptitude, cracking real-world technical problems, acing AI mock interviews, and earning verifiable placement certification.
+            </p>
+            <div className="pt-2 flex flex-wrap gap-4">
+              <Link href="/signup">
+                <PrimaryButton variant="orange" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
+                  Level Up Your Skills Now
+                </PrimaryButton>
+              </Link>
+            </div>
           </div>
-          <p className="text-xs text-slate-400 font-medium">
-            Empowering students with smart learning tools, AI mock interviews, and placement analytics.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-4 text-xs font-bold text-slate-300">
-            {["GOOGLE", "MICROSOFT", "AMAZON", "APPLE", "ADOBE", "INTEL", "ORACLE", "ACCENTURE", "TCS"].map(
-              (c, i) => (
-                <span key={i} className="hover:text-genz-yellow transition-colors">
+
+          <div className="lg:col-span-5 flex justify-center">
+            {/* Student Coding Coder Graphic / Badge */}
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border-4 border-genz-dark shadow-[10px_10px_0px_#4580B2] text-center space-y-4 max-w-md w-full relative">
+              <div className="w-20 h-20 mx-auto rounded-2xl bg-genz-yellow border-2 border-genz-dark flex items-center justify-center text-4xl shadow-retro-hard">
+                👨‍💻
+              </div>
+              <div>
+                <h4 className="font-display font-black text-xl text-genz-dark">KJ Somaiya Coder Pack</h4>
+                <p className="text-xs font-semibold text-slate-600 mt-0.5">Level 99 • Placement Ready</p>
+              </div>
+              <div className="flex items-center justify-center gap-2 pt-1">
+                <span className="bg-genz-pink text-genz-dark font-black text-xs px-3 py-1 rounded-full border border-genz-dark shadow-[2px_2px_0px_#121318]">
+                  ⭐ 98.4% ATS SCORE
+                </span>
+                <span className="bg-genz-green text-white font-black text-xs px-3 py-1 rounded-full border border-genz-dark shadow-[2px_2px_0px_#121318]">
+                  VERIFIED BADGE
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comprehensive Gen Z Vintage Multi-Column Footer */}
+      <footer className="bg-genz-dark text-white pt-20 pb-12 px-6 border-t-4 border-genz-orange">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 text-left">
+            {/* Column 1: Brand & Contact Info */}
+            <div className="lg:col-span-1 space-y-5">
+              <Link href="/" className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-2xl bg-genz-yellow border-2 border-white text-genz-dark flex items-center justify-center font-extrabold text-xl shadow-retro-hard-orange">
+                  P
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-display font-black text-xl text-white tracking-tight leading-none">
+                    PrepWise <span className="text-genz-pink">AI</span>
+                  </span>
+                  <span className="text-[10px] text-genz-yellow font-bold tracking-widest uppercase mt-0.5">
+                    KJ Somaiya Campus
+                  </span>
+                </div>
+              </Link>
+
+              <p className="text-xs text-slate-300 font-medium leading-relaxed">
+                Bizzhub Workspaces, MSR North Tower, KJ Somaiya College of Engineering Campus, Vidyavihar East, Mumbai 400077.
+              </p>
+
+              <div className="space-y-1.5 text-xs text-slate-300 font-semibold">
+                <p>Email: <a href="mailto:support@prepwise.ai" className="text-genz-yellow hover:underline">support@prepwise.ai</a></p>
+                <p>Phone: <a href="tel:+919820012345" className="text-genz-yellow hover:underline">+91 98200 12345</a></p>
+              </div>
+
+              <div className="pt-2 space-y-2">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Find us online</span>
+                <div className="flex items-center gap-2.5">
+                  {["YT", "𝕏", "IN", "FB", "IG", "M"].map((s, i) => (
+                    <span
+                      key={i}
+                      className="w-8 h-8 rounded-xl bg-slate-800 border border-slate-700 text-genz-yellow font-black text-xs flex items-center justify-center hover:bg-genz-orange hover:text-white hover:border-genz-dark transition-all cursor-pointer"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Column 2: ROADMAPS */}
+            <div className="space-y-4">
+              <h4 className="font-display font-black text-sm text-genz-yellow tracking-wider uppercase">ROADMAPS</h4>
+              <ul className="space-y-2 text-xs text-slate-300 font-medium">
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">Aptitude & Reasoning</Link></li>
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">Verbal & English Fluency</Link></li>
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">Data Structures & Algorithms</Link></li>
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">Full Stack Engineering</Link></li>
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">Competitive Programming</Link></li>
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">System Design Basics</Link></li>
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">More Roadmaps →</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 3: CAREER PATHS */}
+            <div className="space-y-4">
+              <h4 className="font-display font-black text-sm text-genz-yellow tracking-wider uppercase">CAREER PATHS</h4>
+              <ul className="space-y-2 text-xs text-slate-300 font-medium">
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">React JS Developer</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">Full Stack Developer</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">SQL Data Analyst</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">Frontend Engineer</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">Java Backend Developer</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">Python Data Science</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">Machine Learning Engineer</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 4: AI EVALUATIONS */}
+            <div className="space-y-4">
+              <h4 className="font-display font-black text-sm text-genz-yellow tracking-wider uppercase">AI EVALUATIONS</h4>
+              <ul className="space-y-2 text-xs text-slate-300 font-medium">
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">AI Tech Interview Bot</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">HR Behavioral Interviewer</Link></li>
+                <li><Link href="/student/interview" className="hover:text-genz-pink transition-colors">Speech Clarity Analytics</Link></li>
+                <li><Link href="/student/ats-analysis" className="hover:text-genz-pink transition-colors">Resume ATS Matcher</Link></li>
+                <li><Link href="/student/certificate" className="hover:text-genz-pink transition-colors">QR Cryptographic Verification</Link></li>
+                <li><Link href="/student/progress" className="hover:text-genz-pink transition-colors">Student Progress Matrix</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 5: COMPANY & HELP */}
+            <div className="space-y-4">
+              <h4 className="font-display font-black text-sm text-genz-yellow tracking-wider uppercase">COMPANY</h4>
+              <ul className="space-y-2 text-xs text-slate-300 font-medium">
+                <li><Link href="/" className="hover:text-genz-pink transition-colors">About PrepWise AI</Link></li>
+                <li><Link href="#colleges" className="hover:text-genz-pink transition-colors">For Colleges & TPO</Link></li>
+                <li><Link href="/student/assessments" className="hover:text-genz-pink transition-colors">Placement Contests</Link></li>
+                <li><Link href="/" className="hover:text-genz-pink transition-colors">Blogs & Placement Guides</Link></li>
+                <li><Link href="#colleges" className="hover:text-genz-pink transition-colors">Hire From Us</Link></li>
+                <li><Link href="/" className="hover:text-genz-pink transition-colors">Contact Us</Link></li>
+                <li><Link href="/" className="hover:text-genz-pink transition-colors">Privacy Policy & Terms</Link></li>
+                <li><Link href="/" className="hover:text-genz-pink transition-colors">Frequently Asked Questions</Link></li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Bottom Bar Footer Line */}
+          <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-medium">
+            <p>© 2026 PrepWise AI. Built for KJ Somaiya College of Engineering. All rights reserved.</p>
+            <div className="flex items-center gap-6 text-[11px] font-bold text-slate-300 uppercase tracking-wider">
+              {["GOOGLE", "MICROSOFT", "AMAZON", "APPLE", "NETFLIX", "ORACLE"].map((c, i) => (
+                <span key={i} className="hover:text-genz-yellow transition-colors cursor-pointer">
                   {c}
                 </span>
-              )
-            )}
+              ))}
+            </div>
           </div>
         </div>
       </footer>
