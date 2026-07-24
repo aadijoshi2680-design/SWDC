@@ -602,70 +602,42 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Right Column: Silver Laptop Computer Mockup with White/Cream Screen */}
+          {/* Right Column: Dark Gen Z Laptop Computer Mockup with Baccha Vid.mp4 Inside */}
           <div className="lg:col-span-6">
             <div className="relative mx-auto w-full max-w-lg">
-              {/* Silver Laptop Display Top Frame */}
-              <div className="bg-slate-200/80 backdrop-blur-xl rounded-t-3xl p-3 sm:p-4 border border-white/80 shadow-2xl relative">
+              {/* Dark Laptop Display Top Frame */}
+              <div className="bg-genz-dark rounded-t-3xl p-3 sm:p-4 border-4 border-genz-dark shadow-2xl relative">
                 {/* Laptop Web Camera Dot */}
-                <div className="w-3 h-3 rounded-full bg-slate-300 border border-slate-400 mx-auto mb-2 flex items-center justify-center">
-                  <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
+                <div className="w-3 h-3 rounded-full bg-slate-900 border border-slate-700 mx-auto mb-2 flex items-center justify-center">
+                  <div className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
                 </div>
 
-                {/* Display Screen */}
-                <div className="bg-white/80 backdrop-blur-xl text-genz-dark rounded-2xl p-5 border border-white/80 space-y-4 shadow-sm">
-                  {/* Interview Session Header */}
-                  <div className="flex items-center justify-between border-b border-slate-100/80 pb-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-genz-blue/90 text-white font-black flex items-center justify-center text-xs border border-white/40 shadow-md shadow-genz-blue/20">
-                        AI
-                      </div>
-                      <div>
-                        <h4 className="font-extrabold text-xs sm:text-sm text-genz-dark">Senior Tech Interviewer Bot</h4>
-                        <p className="text-[11px] text-emerald-600 font-bold flex items-center gap-1.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                          <span>Active Session • 03:42</span>
-                        </p>
-                      </div>
+                {/* Display Screen containing Baccha Vid.mp4 */}
+                <div className="bg-black text-white rounded-2xl overflow-hidden border-2 border-slate-800 shadow-sm relative aspect-[16/10] flex items-center justify-center">
+                  <video
+                    src="/bacchavid.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
+                  {/* Subtle Translucent Overlay Header Badge for AI Session */}
+                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
+                    <div className="flex items-center gap-2 bg-black/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 text-white shadow-lg">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                      <span className="text-[11px] font-black tracking-wide">LIVE AI SESSION</span>
                     </div>
-                    
-                    {/* Real-time Audio Waveform in Header */}
-                    <div className="flex items-center gap-1 bg-genz-orange/10 px-3 py-1.5 rounded-full border border-genz-orange/30">
-                      <span className="text-[10px] font-extrabold text-genz-orange pr-1">REC</span>
-                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-1" />
-                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-2" />
-                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-3" />
-                      <div className="w-0.5 bg-genz-orange rounded-full animate-audio-bar-4" />
-                    </div>
-                  </div>
-
-                  {/* AI Prompt Screen Box */}
-                  <div className="bg-genz-cream/80 backdrop-blur-md p-4 rounded-2xl border border-white/60 space-y-2 text-xs">
-                    <div className="flex items-center gap-2 text-genz-orange font-black">
-                      <MessageSquare className="w-3.5 h-3.5" />
-                      <span>AI Question Prompt:</span>
-                    </div>
-                    <p className="text-slate-800 font-semibold italic leading-relaxed">
-                      "Explain how you would handle race conditions in a high-concurrency Node.js microservice architecture."
-                    </p>
-                  </div>
-
-                  {/* Speech Clarity Meter */}
-                  <div className="bg-genz-yellow/15 backdrop-blur-md p-3.5 rounded-2xl border border-genz-yellow/30 space-y-2">
-                    <div className="flex justify-between text-xs font-black text-genz-dark">
-                      <span>Live Speech Clarity</span>
-                      <span className="text-genz-green">89% - Excellent</span>
-                    </div>
-                    <div className="w-full h-2.5 bg-white/80 border border-white/60 rounded-full overflow-hidden">
-                      <div className="h-full bg-genz-green rounded-full shadow-sm" style={{ width: "89%" }} />
+                    <div className="bg-genz-orange backdrop-blur-md text-white px-2.5 py-1 rounded-full text-[10px] font-black border border-white/20 shadow-lg">
+                      REC ⏺
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Silver Laptop Keyboard Base */}
-              <div className="w-[108%] -ml-[4%] h-5 bg-slate-300/80 backdrop-blur-md rounded-b-2xl border border-white/60 shadow-lg shadow-genz-orange/20 relative flex justify-center items-top">
-                <div className="w-16 sm:w-20 h-1.5 bg-slate-400 border border-slate-500/50 rounded-b-md" />
+              {/* Dark Laptop Keyboard Base */}
+              <div className="w-[108%] -ml-[4%] h-5 bg-genz-dark rounded-b-2xl border-x-4 border-b-4 border-genz-dark shadow-[6px_6px_0px_#FE6622] relative flex justify-center items-top">
+                <div className="w-16 sm:w-20 h-1.5 bg-slate-800 border border-slate-700 rounded-b-md" />
               </div>
             </div>
           </div>
